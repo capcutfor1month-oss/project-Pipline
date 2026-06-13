@@ -2,13 +2,27 @@
 
 This repository is the canonical reusable development pipeline for all future projects owned by the founder.
 
-## Trigger
+## Simplest fresh-session start
 
-When the founder shares a GitHub repository and says:
+In a new ChatGPT session, paste only the target project repository URL.
+
+Example:
+
+```text
+https://github.com/capcutfor1month-oss/example-project
+```
+
+The orchestration hub must automatically read this common pipeline, inspect the target repository, recover its current state, and continue without asking the founder to repeat the complete workflow.
+
+Read `START_HERE.md` for the exact behavior.
+
+## Explicit bootstrap trigger
+
+The founder may also say:
 
 > Apply my common project pipeline.
 
-The orchestration hub must read this repository, inspect the target project, preserve existing work, add only missing prerequisites, validate the result, and stop before product development unless separately approved.
+The orchestration hub must inspect the target project, preserve existing work, add only missing prerequisites, validate the result, and stop before product development unless separately approved.
 
 ## Core model
 
@@ -33,4 +47,4 @@ Founder + ChatGPT
 
 This repository contains only the universal pipeline, rules, templates, prompts, and validation scripts. It does not contain any product implementation.
 
-Read `BOOTSTRAP_CONTRACT.md`, `MANIFEST.md`, and `docs/PIPELINE.md` before applying it to another repository.
+Read `START_HERE.md`, `BOOTSTRAP_CONTRACT.md`, `MANIFEST.md`, and `docs/PIPELINE.md` before applying it to another repository.
