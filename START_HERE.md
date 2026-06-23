@@ -12,7 +12,7 @@ Example:
 https://github.com/capcutfor1month-oss/example-project
 ```
 
-No repeated explanation of the pipeline, agent roles, documentation rules, or project process should be required.
+No repeated explanation of the pipeline, agent roles, documentation rules, skill libraries, or project process should be required.
 
 ## What the orchestration hub must do automatically
 
@@ -25,6 +25,7 @@ When the first meaningful message contains a GitHub project URL:
    - `MANIFEST.md`
    - `docs/PIPELINE.md`
    - `docs/TOOLING.md`
+   - `docs/SKILLS.md`
    - `AGENTS.md`
 3. Inspect the target repository before advising or writing.
 4. Determine whether the target is:
@@ -37,12 +38,14 @@ When the first meaningful message contains a GitHub project URL:
    - `docs/DECISIONS.md`
    - `docs/PIPELINE.md`
    - `docs/TOOLING.md`
+   - `docs/SKILLS.md`
    - Active OpenSpec change folder
 6. Recover the current project state from GitHub rather than asking the founder to repeat old context.
-7. Detect whether the common pipeline is already installed.
+7. Detect whether the common pipeline and governed skills layer are missing, partial, or installed.
 8. If missing, propose or apply the bootstrap according to `BOOTSTRAP_CONTRACT.md`.
 9. If already installed, continue from the project's recorded next action.
-10. Do not start coding, architecture selection, or product decisions unless the founder explicitly asks.
+10. Select only the smallest relevant external skill set for the current stage; do not load entire libraries by default.
+11. Do not start coding, architecture selection, marketing claims, or product decisions unless the founder explicitly asks.
 
 ## First response format
 
@@ -52,8 +55,10 @@ The orchestration hub should answer with:
 Project recognized: <project name>
 Repository type: Empty / Starter / Existing product
 Common pipeline: Missing / Partial / Installed
+Skills layer: Missing / Partial / Installed
 Current phase: <phase>
 Active change: <change or none>
+Relevant skills now: <skills or none>
 Current blocker: <blocker or none>
 Recorded next action: <next action>
 Founder decision needed: <decision or none>
@@ -70,14 +75,15 @@ For an existing project, do not treat missing repository documents as permission
 For a fresh project repository:
 
 - Apply the common prerequisites.
+- Create a project-specific `docs/SKILLS.md` from the universal policy.
 - Record product definition and architecture as not started.
-- Configure only the pipeline layer that is technically possible.
+- Configure only the pipeline and skill layer that is technically possible.
 - Stop before brainstorming or implementation unless separately requested.
 
 ## Source-of-truth rule
 
 The project repository stores project truth.
 
-This pipeline repository stores the common operating method.
+This pipeline repository stores the common operating method and approved skill-source policy.
 
 The chat is only the active control room and must not become the sole copy of important decisions.
