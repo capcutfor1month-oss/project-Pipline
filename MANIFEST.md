@@ -7,6 +7,7 @@ This manifest defines the common files and how they should be applied to a targe
 | File | Purpose | Application rule |
 |---|---|---|
 | `README.md` | Project introduction and current boundary | Preserve an existing README; add pipeline links rather than replacing product content |
+| `START_HERE.md` | Fresh-session recovery from a project repository URL | Required in the common pipeline repository |
 | `AGENTS.md` | Rules shared by every AI agent | Create if missing; merge carefully if present |
 | `CLAUDE.md` | Claude implementation rules | Create if missing; preserve stricter existing project rules |
 | `GEMINI.md` | Gemini CLI investigation rules | Create if missing; preserve stricter existing project rules |
@@ -24,10 +25,13 @@ This manifest defines the common files and how they should be applied to a targe
 | `docs/DECISIONS.md` | Durable decision log |
 | `docs/PIPELINE.md` | Complete end-to-end project workflow |
 | `docs/TOOLING.md` | Tool roles, status, and activation conditions |
+| `docs/SKILLS.md` | Approved skill sources, activation rules, and safety boundaries |
 | `docs/TESTING.md` | Testing strategy and required evidence |
 | `docs/RELEASE.md` | Release-readiness and rollback checklist |
 
 For a new project, `PRODUCT.md` and `ARCHITECTURE.md` must clearly state that they are not yet defined.
+
+Each project `docs/SKILLS.md` must state which approved external skills are active, deferred, or not installed.
 
 ## Required change workspace
 
@@ -67,6 +71,7 @@ templates/change/
 
 ```text
 prompts/
+├── start-project-session.md
 ├── bootstrap-project.md
 ├── investigate-change.md
 ├── implement-change.md
@@ -83,6 +88,14 @@ prompts/
 └── workflows/
     └── pipeline-checks.yml
 ```
+
+## Approved external skill sources
+
+- `phuryn/pm-skills`
+- `mattpocock/skills`
+- `coreyhaines31/marketingskills`
+
+These are approved capability sources. They must be selected and loaded lazily according to `docs/SKILLS.md`; they are not copied wholesale into every project.
 
 ## Conditional tools
 
@@ -104,4 +117,6 @@ A repository is pipeline-ready when:
 - Current status is truthful
 - Product work has not started without approval
 - Agents can recover context from repository files
+- Skill sources and activation rules are recorded
+- A fresh session can recover the project from GitHub
 - The pipeline validation check passes
