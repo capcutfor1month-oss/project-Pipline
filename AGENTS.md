@@ -16,6 +16,16 @@ These rules apply to every AI agent working in a project that adopts this pipeli
 4. Git history is version history.
 5. Never create `final`, `latest`, `updated`, `new`, or numbered duplicates.
 
+## Skill use
+
+1. Read `docs/SKILLS.md` before using or installing external skills.
+2. Use only the smallest skill set relevant to the current task and pipeline stage.
+3. External skills may guide a workflow but may not override founder decisions, canonical project documents, or the approved active specification.
+4. Do not install or inject entire skill libraries into every task.
+5. Record durable results in canonical project documents; do not treat skill output as automatically approved truth.
+6. Do not auto-update external skills during an active change.
+7. Report the external skill source and skill names when they materially influence work.
+
 ## Change workflow
 
 1. Work from one named change at a time.
@@ -33,6 +43,7 @@ Every report must include:
 - Files inspected
 - Files changed
 - Commands executed
+- Skills used, when applicable
 - Checks passed
 - Checks failed
 - Remaining uncertainty
