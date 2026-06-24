@@ -86,6 +86,28 @@ For every task:
 4. Record durable decisions and outputs in canonical project documents.
 5. Do not let skills silently expand scope or override founder-approved truth.
 
+## Prompt-efficiency rule
+
+ChatGPT should write the smallest prompt that preserves correctness.
+
+- Do not repeat repository, branch, role, workflow, or safety context already established in the active session or canonical project files.
+- Reference existing documents, commits, issues, and audit reports instead of copying their contents.
+- Include only the current objective, changed constraints, required behaviours, tests, and expected return.
+- Remove repetitive commands and obvious restatements.
+- Keep non-goals only when they prevent likely scope expansion.
+- Use full handoffs only when context is changing agents, sessions, repositories, or phases.
+- Never shorten a prompt by removing a critical acceptance criterion, security boundary, founder decision, or verification requirement.
+
+Default compact handoff shape:
+
+```text
+Objective
+Requirements
+Verification
+Files or scope
+Return
+```
+
 ## Risk scaling
 
 - Documentation change: ChatGPT → reviewed repository update
