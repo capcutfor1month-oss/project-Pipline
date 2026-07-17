@@ -6,20 +6,23 @@ This repository is the canonical source for the universal project pipeline.
 
 | File | Purpose |
 |---|---|
-| `README.md` | Pipeline overview and trigger |
-| `START_HERE.md` | Fresh-session recovery from one project repository URL |
+| `README.md` | Pipeline overview and simplest trigger |
+| `START_HERE.md` | Fresh-session recovery from one target repository URL |
 | `BOOTSTRAP_CONTRACT.md` | Safe application rules |
 | `MANIFEST.md` | Required files and readiness definition |
 | `AGENTS.md` | Shared AI-agent and skill-governance rules |
-| `CLAUDE.md` | Claude role rules |
-| `GEMINI.md` | Gemini CLI role rules |
-| `docs/PIPELINE.md` | End-to-end operating model and stage-based skill routing |
+| `CLAUDE.md` | Claude implementation and builder-review rules |
+| `GEMINI.md` | Gemini CLI investigation rules |
+| `docs/FOUNDER_AUTOPILOT.md` | Product-language founder interface and automatic orchestration contract |
+| `docs/CONTEXT_MANAGEMENT.md` | Context, ticket, handoff, and fresh-review rules |
+| `docs/PIPELINE.md` | End-to-end operating model and automatic stage routing |
 | `docs/TOOLING.md` | Tool and approved skill-source registry |
-| `docs/SKILLS.md` | External skill sources, activation model, precedence, and context rules |
-| `docs/CURRENT.md` | Current state of this pipeline repository |
-| `docs/DECISIONS.md` | Pipeline decisions |
+| `docs/SKILLS.md` | External capability sources, automatic activation, precedence, and context rules |
+| `docs/CURRENT.md` | Current state and exact next action |
+| `docs/DECISIONS.md` | Durable pipeline decisions |
 | `docs/TESTING.md` | Validation strategy |
 | `docs/RELEASE.md` | Pipeline version and adoption guidance |
+| `docs/PIPELINE_UPDATE_RECOMMENDATIONS.md` | Approved improvement roadmap and Swadhyay pilot plan |
 
 ## Approved external skill sources
 
@@ -27,7 +30,7 @@ This repository is the canonical source for the universal project pipeline.
 - `mattpocock/skills`
 - `coreyhaines31/marketingskills`
 
-These remain upstream capability libraries. Projects record selected activation in their own `docs/SKILLS.md` rather than copying every skill into permanent context.
+These remain upstream capability libraries. Projects record availability, restrictions, and current activation in their own `docs/SKILLS.md`. The orchestration hub selects capabilities automatically rather than asking the founder to operate them.
 
 ## Supporting folders
 
@@ -38,4 +41,4 @@ These remain upstream capability libraries. Projects record selected activation 
 
 ## Anti-duplication rule
 
-One canonical document exists per purpose. Git history stores older versions.
+One canonical document exists per purpose. Git history stores older versions. External skills and temporary agent output must map durable approved results into these canonical documents rather than create parallel sources of truth.
