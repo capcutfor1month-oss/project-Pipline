@@ -4,6 +4,14 @@
 
 Canonical universal pipeline for all future projects.
 
+## Current phase
+
+Founder Autopilot governance integrated; operational validation pending.
+
+## Active change
+
+`founder-autopilot-workflow`
+
 ## Completed
 
 - Bootstrap contract
@@ -12,13 +20,17 @@ Canonical universal pipeline for all future projects.
 - End-to-end workflow
 - Tool registry
 - Fresh-session recovery entry point
-- Reusable prompts
-- Change templates
+- Reusable prompts and change templates
 - GitHub validation workflow
 - External skills registry
 - Stage-based skill routing
 - Skill precedence and context rules
-- Validation for all registered skill sources
+- Founder Autopilot operating contract
+- Automatic natural-language workflow routing
+- Governed context, ticket, handoff, and review rules
+- Matt Pocock skills mapped into OpenSpec without duplicate sources of truth
+- Founder-readable evidence requirements
+- Pipeline update recommendations recorded in the repository
 
 ## Registered skill sources
 
@@ -26,13 +38,18 @@ Canonical universal pipeline for all future projects.
 - `mattpocock/skills`
 - `coreyhaines31/marketingskills`
 
+## Current blocker
+
+The pipeline governance is stronger, but the testing, release, bootstrap automation, incident handling, and real-project adoption flow still need operational validation.
+
 ## Not included
 
 - Product definition
 - Product architecture
 - Application code
 - Product deployment
+- Fully autonomous production actions
 
-## Next action
+## Exact next action
 
-Use this repository as the source whenever the founder shares another GitHub repository. Add a project-specific `docs/SKILLS.md` and select skills according to the project's current phase.
+Review and merge the Founder Autopilot change, then pilot repository recovery and one controlled feature lifecycle on Swadhyay Portal. Treat every point where the founder must manage skills, contexts, technical prompts, or raw evidence as a pipeline defect.
