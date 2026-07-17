@@ -23,15 +23,18 @@ This manifest defines the common files and how they should be applied to a targe
 | `docs/ARCHITECTURE.md` | Approved current system architecture |
 | `docs/CURRENT.md` | Small current-state and next-action summary |
 | `docs/DECISIONS.md` | Durable decision log |
+| `docs/FOUNDER_AUTOPILOT.md` | Product-language founder interface and automatic orchestration contract |
+| `docs/CONTEXT_MANAGEMENT.md` | Automatic context, ticket, review, and handoff rules |
 | `docs/PIPELINE.md` | Complete end-to-end project workflow |
 | `docs/TOOLING.md` | Tool roles, status, and activation conditions |
-| `docs/SKILLS.md` | Approved skill sources, activation rules, and safety boundaries |
+| `docs/SKILLS.md` | Approved skill sources, automatic routing, and safety boundaries |
 | `docs/TESTING.md` | Testing strategy and required evidence |
 | `docs/RELEASE.md` | Release-readiness and rollback checklist |
+| `docs/PIPELINE_UPDATE_RECOMMENDATIONS.md` | Approved improvement roadmap and pilot plan |
 
 For a new project, `PRODUCT.md` and `ARCHITECTURE.md` must clearly state that they are not yet defined.
 
-Each project `docs/SKILLS.md` must state which approved external skills are active, deferred, or not installed.
+Each adopted project must make Founder Autopilot the default founder experience. Project-specific `docs/SKILLS.md` records installed, available, deferred, and restricted capabilities, while the orchestration hub selects skills automatically.
 
 ## Required change workspace
 
@@ -50,7 +53,7 @@ openspec/
         └── audit-report.md
 ```
 
-A real change folder is created only after the founder approves beginning product work.
+A real change folder is created only after the founder approves beginning product work. Small changes may use a reduced project-approved format when risk policy permits.
 
 ## Required reusable templates
 
@@ -80,6 +83,8 @@ prompts/
 └── audit-change.md
 ```
 
+These prompts are invoked or prepared by the orchestration hub. The founder is not responsible for selecting skills, constructing technical prompts, or managing agent context.
+
 ## Required GitHub configuration
 
 ```text
@@ -95,7 +100,7 @@ prompts/
 - `mattpocock/skills`
 - `coreyhaines31/marketingskills`
 
-These are approved capability sources. They must be selected and loaded lazily according to `docs/SKILLS.md`; they are not copied wholesale into every project.
+These are approved capability sources. They are selected automatically and loaded only when relevant according to `docs/SKILLS.md`; they are not copied wholesale into every project or context.
 
 ## Conditional tools
 
@@ -114,9 +119,11 @@ A repository is pipeline-ready when:
 
 - Canonical documents exist without duplicates
 - Roles and boundaries are recorded
+- Founder Autopilot is the default user experience
+- The founder is not required to route skills or manage contexts
 - Current status is truthful
 - Product work has not started without approval
 - Agents can recover context from repository files
-- Skill sources and activation rules are recorded
-- A fresh session can recover the project from GitHub
+- Skill sources, availability, activation rules, and restrictions are recorded
+- A fresh session can recover the project from GitHub with stated confidence
 - The pipeline validation check passes
