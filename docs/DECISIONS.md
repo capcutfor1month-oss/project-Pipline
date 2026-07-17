@@ -50,11 +50,11 @@
 
 ---
 
-## DEC-006 — Lazy skill activation
+## DEC-006 — Automatic skill activation
 
-**Decision:** Skills are selected by project stage and task, loaded in the smallest relevant set, and recorded in project-specific `docs/SKILLS.md` files. Entire libraries are not injected into every project or conversation.
+**Decision:** Skills are selected automatically by the orchestration hub according to project stage, request type, and risk. The smallest relevant set is loaded and recorded; the founder is never responsible for skill routing.
 
-**Reason:** This preserves capability while reducing context bloat, instruction conflicts, and unnecessary token use.
+**Reason:** The founder should work in product language while the system manages context efficiency and developer capability selection.
 
 **Status:** Active
 
@@ -65,5 +65,55 @@
 **Decision:** Founder-approved decisions, canonical project documents, and the approved active specification take precedence over external skill instructions.
 
 **Reason:** Skills are advisers and execution aids; they must not silently change scope, architecture, or product truth.
+
+**Status:** Active
+
+---
+
+## DEC-008 — Founder Autopilot default
+
+**Decision:** Founder Autopilot Mode is the default operating experience. The founder provides product problems, desired behaviour, priorities, feedback, and approvals; the orchestration hub manages recovery, clarification, skills, agents, specifications, contexts, evidence, and handoffs.
+
+**Reason:** The pipeline exists to let a non-coder founder operate a controlled software-development department without learning developer workflows.
+
+**Status:** Active
+
+---
+
+## DEC-009 — Canonical skill-output mapping
+
+**Decision:** External workflows must map approved durable output into the active OpenSpec change and canonical reports. They may not create competing specifications, ticket systems, or sources of truth.
+
+**Reason:** Duplicate specs and issue systems create contradictions and make session recovery unreliable.
+
+**Status:** Active
+
+---
+
+## DEC-010 — Context and ticket policy
+
+**Decision:** The orchestration hub decides when work fits one focused context and when it requires a durable specification, tickets, and handoffs. Multi-session work normally uses one approved ticket per focused implementation context.
+
+**Reason:** Context management is a technical orchestration responsibility and should not be pushed onto the founder.
+
+**Status:** Active
+
+---
+
+## DEC-011 — Review separation
+
+**Decision:** Claude may use a fresh-context builder-side review before handoff, but Codex remains the independent auditor when required by risk.
+
+**Reason:** Agents often review their own recent work poorly; fresh review improves quality, while independent role separation preserves trust.
+
+**Status:** Active
+
+---
+
+## DEC-012 — Manual safety gates
+
+**Decision:** Founder Autopilot may automate development operations but may not bypass required founder approval for product behaviour, major architecture, destructive data actions, production migrations, customer data, production release, public launch, or unclear rollback decisions.
+
+**Reason:** Automation should reduce operational burden without removing product authority or safety controls.
 
 **Status:** Active
