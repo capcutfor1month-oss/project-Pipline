@@ -1,6 +1,6 @@
 # Universal Skills Registry
 
-This document defines the approved external skill libraries used by the universal project pipeline.
+This document defines the approved external capability libraries used by the universal project pipeline.
 
 ## Purpose
 
@@ -15,118 +15,118 @@ Skills do not replace:
 - Independent Codex audit
 - Founder release approval
 
+## Founder experience
+
+Skill selection and activation are orchestration responsibilities.
+
+The founder must not be required to:
+
+- Know available skill names
+- Install or activate skills manually
+- Invoke slash commands
+- Choose which capability applies
+- Manage context windows
+- Create specifications or tickets manually
+- Decide which technical agent should use a skill
+
+The orchestration hub may report skills used after a stage for transparency, but no founder action is required.
+
 ## Approved skill sources
 
 ### Product management
 
 Source: `phuryn/pm-skills`
 
-Approved capability areas:
-
-- Product discovery
-- Product strategy
-- Market research
-- Product execution
-- Data and metrics
-- Marketing and growth
-- Go-to-market
-- AI-assisted shipping
-
-High-value workflows include discovery, assumption mapping, opportunity-solution trees, customer interviews, product vision, value proposition, PRDs, outcome roadmaps, user stories, test scenarios, pre-mortems, strategy red-team, launch planning, and metrics design.
+Approved capability areas include product discovery, strategy, market research, execution, metrics, go-to-market, launch, and AI-assisted shipping.
 
 ### Engineering discipline
 
 Source: `mattpocock/skills`
 
-Approved capability areas:
+Approved capability areas include requirement clarification, repository-aware grilling, prototypes, specification and ticket creation, TDD, disciplined bug diagnosis, domain modelling, codebase design, architecture improvement, Git guardrails, code review, and compact handoffs.
 
-- Requirement clarification
-- Shared domain language
-- PRD and issue creation
-- Test-driven development
-- Disciplined bug diagnosis
-- Domain modelling
-- Codebase design
-- Architecture improvement
-- Git guardrails
-- Pre-commit feedback loops
-- Compact handoffs
-
-High-value skills include `grill-with-docs`, `to-prd`, `to-issues`, `tdd`, `diagnosing-bugs`, `domain-modeling`, `codebase-design`, `improve-codebase-architecture`, `git-guardrails-claude-code`, `setup-pre-commit`, and `handoff`.
+High-value workflows include `grill-with-docs`, specification and ticketing workflows, `tdd`, `diagnosing-bugs`, `domain-modeling`, `codebase-design`, Git guardrails, review, and `handoff`.
 
 ### Marketing and growth
 
 Source: `coreyhaines31/marketingskills`
 
-Approved capability areas include the full upstream library for:
+Approved capability areas include product marketing, customer research, positioning, copywriting, CRO, onboarding, SEO, analytics, experiments, email, SMS, social, image, video, pricing, launch, retention, referral, sales enablement, and revenue operations.
 
-- Product marketing
-- Customer research
-- Positioning and offers
-- Copywriting and editing
-- Conversion-rate optimisation
-- Signup and onboarding
-- SEO and site architecture
-- Analytics and experiments
-- Email, SMS, social, image, and video
-- Pricing and monetisation
-- Launch and public relations
-- Referrals, retention, and churn prevention
-- Sales enablement and revenue operations
+Product-marketing context must be established before downstream marketing skills generate claims or campaigns.
 
-The `product-marketing` context must be established before downstream marketing skills generate claims or campaigns.
+## Installation versus activation
 
-## Skill activation model
+Installation or availability means a capability can be used in the project.
 
-Skills are **lazy-loaded by stage and task**, not injected into every conversation.
+Activation means the orchestration hub selects that capability for the current stage and provides only the instructions required by the working agent.
 
-### New-product discovery
+A project may make approved skills available without loading all of them into every context. "Lazy loading" is internal context management, not a founder task.
 
-Use:
+Prefer project-level installation for governed projects so capability versions, safety rules, and team behaviour remain reproducible. Global installation may be used for personal experimentation but is not the project source of truth.
 
-- PM discovery and assumption skills
-- `grill-with-docs` or `grill-me`
-- Product vision and value-proposition skills
-- Customer-interview skills when real interviews are planned
+## Automatic stage routing
+
+### Discovery and clarification
+
+The orchestrator may use:
+
+- PM discovery and assumption workflows
+- Repository-aware clarification such as `grill-with-docs`
+- Product vision and value-proposition workflows
+- Customer-interview workflows when real interviews are planned
+
+### Runnable uncertainty
+
+Use a prototype only when a named question cannot be answered through discussion or static repository inspection.
+
+A prototype must be isolated, disposable, use no production data, answer one question, and not automatically become production code.
 
 ### Specification and planning
 
-Use:
+The orchestrator may use:
 
-- PM PRD, roadmap, user-story, test-scenario, pre-mortem, and strategy-red-team skills
-- `to-prd`
-- `to-issues`
-- Domain modelling when shared terminology is unclear
+- PRD, roadmap, user-story, test-scenario, pre-mortem, and red-team workflows
+- Specification transformation
+- Ticket creation only for multi-context work
+- Domain modelling when terminology affects behaviour or architecture
+
+Approved durable output must be mapped to the active OpenSpec change.
 
 ### Implementation
 
-Use:
+The orchestrator may route:
 
-- `tdd`
-- `codebase-design`
-- Domain modelling when implementation terminology affects architecture
-- Git guardrails and pre-commit checks where supported
+- TDD
+- Codebase design
+- Domain modelling
+- Git guardrails
+- Pre-commit checks
+- Fresh-context internal code review
 
-### Bug fixing
+### Bug fixing and incidents
 
-Use:
-
-- `diagnosing-bugs`
-- Regression-test discipline
-- TDD for the smallest reproducible fix
+Route disciplined diagnosis, reproduction, regression-test discipline, TDD for the smallest safe fix, and risk-scaled audit.
 
 ### Launch and growth
 
-After product direction and evidence exist, use:
+Activate only after product direction and evidence exist.
 
-- Product marketing
-- Customer research
-- Copywriting
-- CRO
-- Signup and onboarding
-- Analytics and A/B testing
-- Launch and go-to-market
-- SEO, email, SMS, referrals, retention, and sales enablement as relevant
+## Canonical-output rule
+
+Skills may guide work but may not create a competing source of truth.
+
+```text
+OpenSpec spec.md = approved destination and acceptance criteria
+OpenSpec tasks.md = implementation slices
+repository-report.md = investigation evidence
+implementation-report.md = builder evidence
+verification-report.md = repeatable verification evidence
+ux-report.md = user-flow evidence
+audit-report.md = independent verdict
+```
+
+Do not maintain duplicate local tickets, GitHub issues, scratch specs, and OpenSpec tasks for the same purpose unless a distinct need is explicitly approved.
 
 ## Precedence and conflict rules
 
@@ -144,34 +144,35 @@ A skill may improve execution but may not silently expand scope, change architec
 
 ## Context-bloat rule
 
-Do not install or load every skill merely because it is available.
+For each task, the orchestration hub must:
 
-For each task:
-
-1. Identify the current pipeline stage.
-2. Select the smallest relevant skill set.
-3. Load only those skill instructions.
-4. Store durable outcomes in canonical project documents.
-5. Remove temporary summaries and raw logs from the main context.
+1. Identify the current stage and risk.
+2. Select the smallest relevant capability set.
+3. Load only those instructions into the working context.
+4. Store durable outcomes in canonical documents.
+5. Remove or summarize temporary logs and scratch material.
+6. Start a fresh context or handoff when required by `docs/CONTEXT_MANAGEMENT.md`.
 
 ## Installation policy
 
 - The three upstream repositories are approved sources.
-- Record the exact upstream repository and selected skill names before installation.
-- Prefer project-level installation for project-specific skills.
+- Record the exact upstream repository and selected skills before project installation.
+- Prefer project-level installation.
 - Do not vendor or duplicate entire upstream libraries into every repository.
 - Do not auto-update skills during an active change.
 - Review upstream changes before upgrading.
-- Never allow a skill installer to overwrite canonical project documents or agent rules.
+- Never allow an installer to overwrite canonical project documents or agent rules.
+- Availability does not grant permission to bypass founder approvals, tests, audits, or release gates.
 
 ## Project adoption requirement
 
 Each adopted project should contain its own `docs/SKILLS.md` stating:
 
 - Approved upstream sources
-- Skills active in the current phase
-- Skills deferred until later phases
+- Capabilities installed or available
+- Capabilities currently active
+- Capabilities deferred or restricted
 - Project-specific safety boundaries
-- Installation status
+- Installation status and version when known
 
-This keeps the full capability available while preventing unnecessary context and instruction conflicts.
+The orchestration hub reads this file and selects capabilities automatically. The founder does not operate it.
