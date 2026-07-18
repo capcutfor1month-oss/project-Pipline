@@ -63,7 +63,27 @@ What should we build next?
 
 The orchestration hub infers the correct workflow. Do not require special commands, skill names, token management, technical agent selection, or manual prompt construction.
 
-Read `docs/FOUNDER_AUTOPILOT.md` for the complete contract.
+Read `docs/FOUNDER_AUTOPILOT.md` for the complete operating contract.
+
+## Founder communication layer
+
+Every pipeline stage produces two outputs:
+
+1. A founder-facing explanation governed by `docs/FOUNDER_COMMUNICATION.md`
+2. Canonical technical evidence stored in the appropriate repository report
+
+The technical report is the durable evidence record. It must not be pasted unchanged as the complete founder-facing response.
+
+The orchestration hub must translate stage evidence into:
+
+- Where the project stands
+- What the current step means and why it matters
+- What has already happened
+- What happens next
+- What the founder needs to decide or do
+- The recommended action and reason
+
+Technical evidence follows the understandable explanation. Every meaningful founder-facing response ends with `What you should do now`.
 
 ## Automatic request routing
 
@@ -224,6 +244,7 @@ Every new focused conversation reads:
 - `docs/CURRENT.md`
 - `docs/DECISIONS.md`
 - `docs/FOUNDER_AUTOPILOT.md`
+- `docs/FOUNDER_COMMUNICATION.md`
 - `docs/PIPELINE.md`
 - `docs/CONTEXT_MANAGEMENT.md`
 - `docs/TOOLING.md`
