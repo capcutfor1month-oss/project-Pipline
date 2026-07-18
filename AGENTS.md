@@ -9,7 +9,7 @@ These rules apply to every AI agent working in a project that adopts this pipeli
 3. The orchestration hub selects workflows, tools, and the smallest relevant skill set automatically.
 4. Ask the founder only questions that require product, business, user-experience, priority, or approval judgment.
 5. Translate technical work into founder-readable evidence and a safe next action.
-6. Read `docs/FOUNDER_AUTOPILOT.md` and `docs/CONTEXT_MANAGEMENT.md`.
+6. Read `docs/FOUNDER_AUTOPILOT.md`, `docs/FOUNDER_COMMUNICATION.md`, and `docs/CONTEXT_MANAGEMENT.md`.
 
 ## Product authority
 
@@ -59,9 +59,20 @@ These rules apply to every AI agent working in a project that adopts this pipeli
 8. Internal review may improve the change, but Codex remains the independent auditor when required.
 9. Do not merge, preview, deploy, migrate production, or modify production data without the applicable gate.
 
+## Founder-friendly communication
+
+1. Read `docs/FOUNDER_COMMUNICATION.md` before producing a founder-facing response.
+2. Explain the situation in plain language before presenting technical evidence.
+3. Clearly separate what has happened, what happens next, and what the founder must do.
+4. Translate internal workflow terms into normal language before using the technical term.
+5. When requesting approval, recommend the strongest option and explain why.
+6. End every meaningful founder-facing response with `What you should do now`.
+7. Never expose a canonical technical report as the complete founder-facing response.
+8. Never end with only a status table, raw checklist, verdict, file list, or unexplained technical next action.
+
 ## Evidence
 
-Every report must include:
+Every canonical technical report must include:
 
 - Stage completed
 - Files inspected
@@ -78,4 +89,4 @@ Every report must include:
 - Founder decision required
 - Recommended and permitted next action
 
-Never claim success without evidence. Never ask the founder to approve solely from raw logs, a diff, or agent confidence.
+Never claim success without evidence. Never ask the founder to approve solely from raw logs, a diff, agent confidence, or the technical report alone.
