@@ -29,7 +29,26 @@ PASS WITH WARNINGS
 
 `PASS WITH WARNINGS` is permitted only when no warning blocks the next explicitly named stage.
 
-## Required return
+## Founder-facing return
+
+Before the technical report, provide a concise explanation following `docs/FOUNDER_COMMUNICATION.md`.
+
+Explain:
+
+- Whether the independent review found the work safe to continue
+- What the verdict means in normal language
+- Why the important findings matter
+- What happens next
+- What the founder needs to decide or do
+- The recommended next action and reason
+
+Do not present several options without recommending the strongest one.
+
+End with:
+
+## What you should do now
+
+## Technical evidence
 
 ```text
 Stage completed: Independent audit
