@@ -6,11 +6,11 @@ Canonical universal pipeline for all future projects.
 
 ## Current phase
 
-Founder Autopilot governance integrated; operational validation pending.
+Founder Autopilot communication experience improved; operational validation pending.
 
 ## Active change
 
-`founder-autopilot-workflow`
+`founder-friendly-communication-contract`
 
 ## Completed
 
@@ -30,6 +30,10 @@ Founder Autopilot governance integrated; operational validation pending.
 - Governed context, ticket, handoff, and review rules
 - Matt Pocock skills mapped into OpenSpec without duplicate sources of truth
 - Founder-readable evidence requirements
+- Founder-Friendly Communication Contract
+- Plain-language session recovery before technical status
+- Founder summary separated from canonical technical evidence
+- Mandatory `What you should do now` ending for meaningful responses
 - Pipeline update recommendations recorded in the repository
 
 ## Registered skill sources
@@ -40,10 +44,14 @@ Founder Autopilot governance integrated; operational validation pending.
 
 ## Current blocker
 
-The pipeline governance is stronger, but the testing, release, bootstrap automation, incident handling, and real-project adoption flow still need operational validation.
+The communication contract is defined, but it still needs pipeline validation and a real-project pilot to confirm that agents consistently guide the founder instead of returning audit-style status dumps.
 
 ## Not included
 
+- Changes to workflow stages
+- Changes to approval gates
+- Changes to safety rules
+- Changes to agent responsibilities
 - Product definition
 - Product architecture
 - Application code
@@ -52,4 +60,4 @@ The pipeline governance is stronger, but the testing, release, bootstrap automat
 
 ## Exact next action
 
-Review and merge the Founder Autopilot change, then pilot repository recovery and one controlled feature lifecycle on Swadhyay Portal. Treat every point where the founder must manage skills, contexts, technical prompts, or raw evidence as a pipeline defect.
+Validate and merge the Founder-Friendly Communication Contract, then test fresh-session recovery and one real project stage on the personal AI content project or Swadhyay Portal. Treat any response that ends with a raw status table, technical verdict, or unexplained next action as a pipeline defect.
