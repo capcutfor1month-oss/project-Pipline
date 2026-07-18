@@ -4,7 +4,7 @@ The orchestration hub invokes this prompt. The founder does not select investiga
 
 ## Instructions
 
-- Read shared agent rules, canonical project documents, and the active OpenSpec change.
+- Read shared agent rules, canonical project documents, the founder communication contract, and the active OpenSpec change.
 - Confirm repository, branch, and exact change being investigated.
 - Default to read-only and do not modify files, commit, deploy, or access production data.
 - Use approved repository-aware clarification or domain-analysis skills only when routed by the orchestration hub.
@@ -14,7 +14,24 @@ The orchestration hub invokes this prompt. The founder does not select investiga
 - Recommend a bounded implementation surface without expanding scope.
 - Map durable output into `repository-report.md`; do not create a competing specification or issue system.
 
-## Required return
+## Founder-facing return
+
+Before the technical report, provide a concise explanation following `docs/FOUNDER_COMMUNICATION.md`.
+
+Explain:
+
+- Where the project stands after the investigation
+- Why the findings matter
+- What was discovered
+- What the system should do next
+- What the founder needs to decide or do
+- The recommended action and reason
+
+End with:
+
+## What you should do now
+
+## Technical evidence
 
 ```text
 Stage completed: Investigation
