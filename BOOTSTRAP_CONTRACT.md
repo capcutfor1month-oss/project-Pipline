@@ -38,6 +38,7 @@ The common scaffold may be added as the initial setup.
 10. Codex performs an independent audit.
 11. The founder gives final product and user-experience approval.
 12. Deployment alone does not equal public-release readiness.
+13. Founder-facing responses follow `docs/FOUNDER_COMMUNICATION.md`.
 
 ## Bootstrap boundaries
 
@@ -51,9 +52,24 @@ During pipeline setup, do not:
 - Deploy an application
 - Create speculative features
 
-## Completion report
+## Completion response
 
-Report:
+Do not begin with a raw setup checklist.
+
+First explain in plain language:
+
+- Whether the repository was safely prepared
+- What existing work was preserved
+- Why the setup matters
+- What remains before product work can begin
+- What the founder needs to decide or do
+- The recommended next action and reason
+
+End the founder-facing explanation with:
+
+## What you should do now
+
+Then provide technical evidence covering:
 
 - Repository inspected
 - Existing files preserved
@@ -62,7 +78,7 @@ Report:
 - Checks run and results
 - Tools ready to configure
 - Tools that require architecture or a working application
-- Exact next action
+- Exact permitted next action
 
 ## Context recovery
 
@@ -71,6 +87,8 @@ A fresh project conversation must recover state by reading:
 - `docs/INDEX.md`
 - `docs/CURRENT.md`
 - `docs/DECISIONS.md`
+- `docs/FOUNDER_AUTOPILOT.md`
+- `docs/FOUNDER_COMMUNICATION.md`
 - `docs/PIPELINE.md`
 - `docs/TOOLING.md`
 - The active change folder, when one exists

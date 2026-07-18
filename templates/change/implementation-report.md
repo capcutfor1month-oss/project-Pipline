@@ -1,29 +1,45 @@
 # Implementation Report
 
-## Approved change
+## Founder summary
 
-## Tasks completed
+### Where things stand
 
-## Skills used
+### Why this matters
+
+### What has already happened
+
+### What happens next
+
+### Founder action or decision
+
+### Recommended option and reason
+
+## Technical evidence
+
+### Approved change
+
+### Tasks completed
+
+### Skills used
 
 List the selected skill source and skill names, or state `None`.
 
-## Files changed
+### Files changed
 
-## Tests added or updated
+### Tests added or updated
 
-## Commands executed
+### Commands executed
 
-## Checks passed
+### Checks passed
 
-## Checks failed
+### Checks failed
 
-## Deviations
+### Deviations
 
-## Skill-related scope check
+### Skill-related scope check
 
 Confirm that no skill expanded scope, changed architecture, or overrode the approved specification.
 
-## Remaining uncertainty
+### Remaining uncertainty
 
-## Recommended next action
+### Recommended next action

@@ -117,3 +117,13 @@
 **Reason:** Automation should reduce operational burden without removing product authority or safety controls.
 
 **Status:** Active
+
+---
+
+## DEC-013 — Founder-friendly communication contract
+
+**Decision:** Every meaningful founder-facing response must begin with a plain-language explanation, separate what happened from what happens next and what the founder must do, recommend the strongest option when approval is needed, place technical evidence afterward, and end with `What you should do now`.
+
+**Reason:** Correct workflow logic is not enough when the founder cannot easily understand project status, importance, recommendations, and next actions. Technical reports remain canonical evidence but must not be used as the complete founder-facing response.
+
+**Status:** Active

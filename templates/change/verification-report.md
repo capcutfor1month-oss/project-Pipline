@@ -1,19 +1,35 @@
 # Verification Report
 
-## Change verified
+## Founder summary
 
-## Environment
+### Where things stand
 
-## Commands executed
+### Why this matters
 
-## Checks passed
+### What has already happened
 
-## Checks failed
+### What happens next
 
-## Failure summary
+### Founder action or decision
 
-## Files changed
+### Recommended option and reason
 
-## Remaining uncertainty
+## Technical evidence
 
-## Recommended next action
+### Change verified
+
+### Environment
+
+### Commands executed
+
+### Checks passed
+
+### Checks failed
+
+### Failure summary
+
+### Files changed
+
+### Remaining uncertainty
+
+### Recommended next action

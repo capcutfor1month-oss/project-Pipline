@@ -1,33 +1,49 @@
 # Independent Audit Report
 
-## Verdict
+## Founder summary
 
-PASS / FAIL
+### Where things stand
 
-## Specification reviewed
+### Why this matters
 
-## Diff and files reviewed
+### What has already happened
 
-## Skills declared by prior stages
+### What happens next
+
+### Founder action or decision
+
+### Recommended option and reason
+
+## Technical evidence
+
+### Verdict
+
+PASS / FAIL / PASS WITH WARNINGS
+
+### Specification reviewed
+
+### Diff and files reviewed
+
+### Skills declared by prior stages
 
 List the skill sources and skill names reported by discovery, investigation, or implementation.
 
-## Evidence reviewed
+### Evidence reviewed
 
-## Skill-governance findings
+### Skill-governance findings
 
 Verify that external skills did not override founder decisions, expand scope, change architecture silently, or substitute framework output for evidence.
 
-## Blockers
+### Blockers
 
-## Non-blocking improvements
+### Non-blocking improvements
 
-## Security and privacy findings
+### Security and privacy findings
 
-## Regression findings
+### Regression findings
 
-## Test-quality findings
+### Test-quality findings
 
-## Remaining uncertainty
+### Remaining uncertainty
 
-## Recommended next action
+### Recommended next action

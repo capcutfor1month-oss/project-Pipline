@@ -4,7 +4,7 @@ The orchestration hub invokes verification against the exact implementation comm
 
 ## Instructions
 
-- Read the complete approved specification, current ticket status, implementation report, and project testing policy.
+- Read the complete approved specification, current ticket status, implementation report, founder communication contract, and project testing policy.
 - Confirm repository, branch, commit, and environment tested.
 - Run the repeatable checks required by the change risk.
 - Verify every acceptance criterion, important failure state, and relevant historical-data behaviour.
@@ -15,7 +15,24 @@ The orchestration hub invokes verification against the exact implementation comm
 - Summarize failures instead of pasting large logs.
 - Write `verification-report.md`.
 
-## Required return
+## Founder-facing return
+
+Before the technical report, provide a concise explanation following `docs/FOUNDER_COMMUNICATION.md`.
+
+Explain:
+
+- Whether the change works as intended
+- Why this proof matters before continuing
+- What passed and what remains uncertain
+- What happens next
+- What the founder needs to test, decide, or approve
+- The recommended next action and reason
+
+End with:
+
+## What you should do now
+
+## Technical evidence
 
 ```text
 Stage completed: Verification

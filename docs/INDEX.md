@@ -14,6 +14,7 @@ This repository is the canonical source for the universal project pipeline.
 | `CLAUDE.md` | Claude implementation and builder-review rules |
 | `GEMINI.md` | Gemini CLI investigation rules |
 | `docs/FOUNDER_AUTOPILOT.md` | Product-language founder interface and automatic orchestration contract |
+| `docs/FOUNDER_COMMUNICATION.md` | Founder-friendly response order, tone, term translation, and action guidance |
 | `docs/CONTEXT_MANAGEMENT.md` | Context, ticket, handoff, and fresh-review rules |
 | `docs/PIPELINE.md` | End-to-end operating model and automatic stage routing |
 | `docs/TOOLING.md` | Tool and approved skill-source registry |
@@ -38,6 +39,10 @@ These remain upstream capability libraries. Projects record availability, restri
 - `prompts/`
 - `scripts/`
 - `.github/`
+
+## Founder communication rule
+
+Every meaningful pipeline stage produces a founder-friendly explanation and a separate technical evidence record. The evidence report remains canonical, but it must not be pasted unchanged as the complete founder response.
 
 ## Anti-duplication rule
 

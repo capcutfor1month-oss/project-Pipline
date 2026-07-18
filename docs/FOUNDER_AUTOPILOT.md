@@ -118,26 +118,25 @@ Founder problem
 
 Builder-side review improves work before handoff but never replaces independent Codex audit or founder approval.
 
-## Founder-facing report
+## Founder-facing communication
 
-Every meaningful stage must end with:
+All responses shown directly to the founder must follow `docs/FOUNDER_COMMUNICATION.md`.
 
-```text
-Stage completed:
-What was inspected:
-What was changed:
-What was not changed:
-Checks passed:
-Checks failed:
-Known risks:
-Remaining uncertainty:
-Manual testing required:
-Deployment status:
-Founder decision required:
-Permitted next action:
-```
+Technical evidence remains mandatory, but it must appear after the plain-language explanation.
 
-The founder must not be asked to approve work based only on agent confidence, raw logs, or a code diff.
+A meaningful response must clearly separate:
+
+1. What has already happened
+2. What the system will do next
+3. What the founder needs to decide or do
+
+When approval is required, recommend the strongest option and briefly explain why.
+
+Every meaningful response must end with:
+
+## What you should do now
+
+The founder must not be asked to approve work based only on agent confidence, raw logs, a code diff, a status table, or an unexplained technical verdict.
 
 ## Mandatory manual approval gates
 

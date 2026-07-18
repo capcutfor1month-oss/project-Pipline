@@ -24,6 +24,7 @@ This manifest defines the common files and how they should be applied to a targe
 | `docs/CURRENT.md` | Small current-state and next-action summary |
 | `docs/DECISIONS.md` | Durable decision log |
 | `docs/FOUNDER_AUTOPILOT.md` | Product-language founder interface and automatic orchestration contract |
+| `docs/FOUNDER_COMMUNICATION.md` | Founder-friendly response order, tone, term translation, and action guidance |
 | `docs/CONTEXT_MANAGEMENT.md` | Automatic context, ticket, review, and handoff rules |
 | `docs/PIPELINE.md` | Complete end-to-end project workflow |
 | `docs/TOOLING.md` | Tool roles, status, and activation conditions |
@@ -34,7 +35,7 @@ This manifest defines the common files and how they should be applied to a targe
 
 For a new project, `PRODUCT.md` and `ARCHITECTURE.md` must clearly state that they are not yet defined.
 
-Each adopted project must make Founder Autopilot the default founder experience. Project-specific `docs/SKILLS.md` records installed, available, deferred, and restricted capabilities, while the orchestration hub selects skills automatically.
+Each adopted project must make Founder Autopilot the default founder experience and apply the Founder-Friendly Communication Contract. Project-specific `docs/SKILLS.md` records installed, available, deferred, and restricted capabilities, while the orchestration hub selects skills automatically.
 
 ## Required change workspace
 
@@ -69,6 +70,8 @@ templates/change/
 ├── ux-report.md
 └── audit-report.md
 ```
+
+Every report template must separate a founder summary from technical evidence.
 
 ## Required reusable prompts
 
@@ -120,10 +123,12 @@ A repository is pipeline-ready when:
 - Canonical documents exist without duplicates
 - Roles and boundaries are recorded
 - Founder Autopilot is the default user experience
+- Founder-facing responses follow the communication contract
 - The founder is not required to route skills or manage contexts
 - Current status is truthful
 - Product work has not started without approval
 - Agents can recover context from repository files
 - Skill sources, availability, activation rules, and restrictions are recorded
 - A fresh session can recover the project from GitHub with stated confidence
+- Technical evidence remains available without replacing the understandable founder explanation
 - The pipeline validation check passes
