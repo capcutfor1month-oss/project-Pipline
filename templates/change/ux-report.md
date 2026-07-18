@@ -1,19 +1,37 @@
 # User-Flow Verification Report
 
-## Journey tested
+## Founder summary
 
-## Environment and device size
+### Where things stand
 
-## Steps performed
+### Why this matters
 
-## Expected result
+### What has already happened
 
-## Actual result
+### What happens next
 
-## Evidence
+### Founder action or decision
 
-## UX problems
+### Recommended option and reason
 
-## Functional problems
+## Technical evidence
 
-## Recommended next action
+### Journey tested
+
+### Environment and device size
+
+### Steps performed
+
+### Expected result
+
+### Actual result
+
+### Evidence
+
+### UX problems
+
+### Functional problems
+
+### Remaining uncertainty
+
+### Recommended next action
