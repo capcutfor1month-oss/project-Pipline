@@ -8,7 +8,7 @@ Canonical common pipeline:
 
 ## Instructions
 
-1. Read `START_HERE.md` and `docs/FOUNDER_AUTOPILOT.md` from the common pipeline repository.
+1. Read `START_HERE.md`, `docs/FOUNDER_AUTOPILOT.md`, and `docs/FOUNDER_COMMUNICATION.md` from the common pipeline repository.
 2. Read the common bootstrap contract, manifest, pipeline, context policy, tooling registry, skills policy, and agent rules.
 3. Perform the repository-access preflight before claiming recovery.
 4. Inspect the target repository before responding.
@@ -19,24 +19,37 @@ Canonical common pipeline:
 9. Ask only product-level questions requiring founder judgment.
 10. Do not rely on old chat memory when GitHub contains newer project truth.
 11. Do not code, select architecture, perform destructive actions, or make product decisions without the required approval.
-12. Return the founder-readable status summary and continue from the recorded next action or the founder's new task.
+12. Return the founder-friendly explanation and continue from the recorded next action or the founder's new task.
 
-## Standard status summary
+## Required founder-facing response
 
-```text
-Project recognized:
-Repository type:
-Repository access:
-Common pipeline:
-Skills layer:
-Current phase:
-Active change:
-Current blocker:
-Recorded next action:
-Recovery confidence:
-Unverified assumptions:
-Founder decision needed:
-Coding started:
-```
+Follow `docs/FOUNDER_COMMUNICATION.md`.
+
+Do not begin with recovery fields.
+
+First explain in plain language:
+
+- Whether recovery succeeded
+- Where the project stands
+- What the current step means
+- Why it matters
+
+Then separate:
+
+### What has already happened
+
+### What happens next
+
+### What I need from you
+
+When a choice or approval is needed, recommend the strongest option and explain why.
+
+Place repository access, pipeline status, current phase, active change, blocker, recovery confidence, assumptions, and coding status under:
+
+## Technical details
+
+End with:
+
+## What you should do now
 
 Do not expose a skill menu unless the founder explicitly asks for technical detail.
