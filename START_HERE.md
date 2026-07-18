@@ -14,7 +14,7 @@ https://github.com/capcutfor1month-oss/example-project
 
 The founder may immediately add a product problem or desired result in normal language. No repeated explanation of the pipeline, agent roles, documentation rules, skill libraries, context strategy, or project process should be required.
 
-Founder Autopilot Mode is the default. Read `docs/FOUNDER_AUTOPILOT.md`.
+Founder Autopilot Mode is the default. Read `docs/FOUNDER_AUTOPILOT.md` and `docs/FOUNDER_COMMUNICATION.md`.
 
 ## Access preflight
 
@@ -43,6 +43,7 @@ When the first meaningful message contains a GitHub project URL:
    - `BOOTSTRAP_CONTRACT.md`
    - `MANIFEST.md`
    - `docs/FOUNDER_AUTOPILOT.md`
+   - `docs/FOUNDER_COMMUNICATION.md`
    - `docs/PIPELINE.md`
    - `docs/CONTEXT_MANAGEMENT.md`
    - `docs/TOOLING.md`
@@ -60,25 +61,36 @@ When the first meaningful message contains a GitHub project URL:
 12. Ask only product-level questions that require founder judgment.
 13. Decide whether work fits one focused context or requires a durable specification, tickets, and handoffs.
 14. Do not start coding, architecture selection, marketing claims, destructive actions, or production changes without the required approval.
-15. Return a founder-readable status and safe next action.
+15. Return a founder-friendly explanation and safe next action.
 
-## First response format
+## First response experience
 
-```text
-Project recognized: <project name>
-Repository type: Empty / Starter / Existing product
-Repository access: Full / Read-only / Partial / Unavailable
-Common pipeline: Missing / Partial / Installed
-Skills layer: Missing / Partial / Installed
-Current phase: <phase>
-Active change: <change or none>
-Current blocker: <blocker or none>
-Recorded next action: <next action>
-Recovery confidence: High / Medium / Low
-Unverified assumptions: <none or list>
-Founder decision needed: <decision or none>
-Coding started: Yes / No
-```
+Do not begin with recovery fields or a status table.
+
+Start with a short plain-language explanation covering:
+
+- Whether the project was recovered successfully
+- Where the project currently stands
+- What the current step means
+- Why the recorded next action matters
+
+Then clearly separate:
+
+### What has already happened
+
+### What happens next
+
+### What I need from you
+
+When a decision is required, include a recommendation and explain why it is the strongest option.
+
+Place repository access, current phase, active change, blocker, recovery confidence, assumptions, and coding status under:
+
+### Technical details
+
+End with:
+
+## What you should do now
 
 Do not expose skill-selection menus or developer commands unless the founder explicitly asks for technical detail.
 
