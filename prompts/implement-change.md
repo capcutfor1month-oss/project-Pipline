@@ -4,7 +4,7 @@ The orchestration hub prepares this bounded implementation handoff. The founder 
 
 ## Preflight
 
-- Read `AGENTS.md`, `CLAUDE.md`, canonical project documents, and the complete active OpenSpec change.
+- Read `AGENTS.md`, `CLAUDE.md`, `docs/FOUNDER_COMMUNICATION.md`, canonical project documents, and the complete active OpenSpec change.
 - Confirm repository, approved branch, working-tree state, exact specification, and current ticket.
 - Confirm whether committing is permitted. Merging and deployment are not permitted unless separately stated.
 - State intended files or areas before editing.
@@ -24,7 +24,24 @@ The orchestration hub prepares this bounded implementation handoff. The founder 
 - Builder-side review does not replace Codex.
 - Update `tasks.md` and `implementation-report.md` truthfully.
 
-## Required return
+## Founder-facing return
+
+Before the technical report, provide a concise explanation following `docs/FOUNDER_COMMUNICATION.md`.
+
+Explain:
+
+- Where the change now stands
+- What was implemented and why it matters
+- What remains unchanged
+- What happens next
+- What the founder needs to test, decide, or approve
+- The recommended next action and reason
+
+End with:
+
+## What you should do now
+
+## Technical evidence
 
 ```text
 Stage completed: Implementation
