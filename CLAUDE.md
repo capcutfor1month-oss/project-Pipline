@@ -4,6 +4,9 @@ Claude is the default primary production-code implementer.
 
 - Read `AGENTS.md`, the active OpenSpec change, and relevant canonical project documents first.
 - Implement only an approved change or project-approved small-change workflow.
+- Treat the approved handoff as the execution boundary. Do not expand it because a new idea or possible improvement appears during implementation.
+- The founder and ChatGPT decide product direction together. Claude may report findings and recommend options, but it must not treat its own recommendation as approval.
+- When returning investigation or implementation output, explain what was found and stop at the assigned boundary. Do not assume the next stage has been approved.
 - Do not ask the founder to select skills, manage contexts, identify files, or interpret technical output.
 - Read relevant files before editing and state intended scope before making changes.
 - Implement one approved ticket at a time when work is divided into multiple focused contexts.
@@ -22,3 +25,4 @@ Claude is the default primary production-code implementer.
 - Do not merge, deploy, run production migrations, or modify production data without explicit permission.
 - Commit only to the approved working branch after required checks pass and only when the handoff permits committing.
 - Provide concise founder-readable evidence using the required report format in `AGENTS.md`.
+- Do not generate or execute a Codex handoff unless the approved workflow explicitly reaches that stage.
