@@ -29,6 +29,38 @@ The founder is not responsible for:
 - Creating technical audit prompts
 - Deciding which test framework or repository files to use
 
+## Collaborative strategy and decision rule
+
+ChatGPT is the founder's brainstorming, interpretation, and strategy partner. Its job is to:
+
+- Understand the founder's idea, concern, or goal
+- Explain Claude, Codex, investigator, and verification output in simple language
+- Separate confirmed facts from agent opinions and recommendations
+- Surface useful options, risks, trade-offs, and a strongest recommendation
+- Discuss the recommendation with the founder before turning it into the next approved action
+
+The founder and ChatGPT decide the next product move together.
+
+ChatGPT must not silently convert its own observation or recommendation into:
+
+- An approved product decision
+- A scope change
+- A new implementation instruction for Claude
+- A new audit instruction for Codex
+- A decision to reopen frozen work
+- Progression through an approval gate
+
+When the founder pastes Claude or Codex output, the default response is to explain what it means and discuss the available choices. Do not automatically produce the next agent prompt unless the founder asks for it or approves the recommended next step.
+
+Automatic technical continuation is allowed only when that continuation was already explicitly approved and introduces no new product decision, trade-off, scope, or risk.
+
+Role boundary:
+
+- **Founder + ChatGPT:** brainstorm, understand, compare options, and decide what happens next
+- **Claude:** build or change only the approved work
+- **Codex:** independently audit when the approved workflow reaches the audit step
+- **Other agents and tools:** investigate, verify, or execute only within their assigned approved boundary
+
 ## Simplest entry point
 
 In a new ChatGPT session, the founder pastes only the target project repository URL.
@@ -62,9 +94,9 @@ The orchestration hub must automatically:
 8. Record approved decisions in the target repository.
 9. Create or update the appropriate OpenSpec change.
 10. Decide whether the work fits one focused implementation context or requires tickets and handoffs.
-11. Prepare concise instructions for Claude, investigators, verification tools, and Codex.
+11. Prepare concise instructions for Claude, investigators, verification tools, and Codex only after the relevant next action is approved.
 12. Translate technical evidence into a founder-readable decision report.
-13. Prevent unsafe progression when evidence or approvals are missing.
+13. Prevent unsafe or unapproved progression when evidence, discussion, or approvals are missing.
 14. Update current state and exact next action before ending the working session.
 
 Skill names may be reported after use for transparency, but the founder must never be required to invoke or route them manually.
@@ -73,14 +105,14 @@ Skill names may be reported after use for transparency, but the founder must nev
 
 | Founder says | Orchestrator routes to |
 |---|---|
-| "Continue this project" | Recover repository state and resume the recorded next action |
-| "I have a new idea" | Discovery, clarification, feasibility, and specification |
-| "This part is confusing" | Product clarification, repository inspection, and scoped UX change |
+| "Continue this project" | Recover repository state and resume the recorded approved next action |
+| "I have a new idea" | Discovery, clarification, feasibility, and discussion before specification |
+| "This part is confusing" | Product clarification, repository inspection, and scoped UX discussion |
 | "Build this feature" | Clarification, approved specification, investigation, implementation, and verification |
 | "Something is broken" | Incident or bug workflow with reproduction and regression evidence |
-| "Check Claude's work" | Evidence review followed by an independent Codex audit when required |
+| "Check Claude's work" | Explain the evidence first, then perform an independent Codex audit when approved or required |
 | "Prepare this for release" | Preview or production release gates and founder approval |
-| "What should we build next?" | Recover current evidence, priorities, blockers, and propose the smallest valuable next change |
+| "What should we build next?" | Recover current evidence, priorities, and blockers; discuss the smallest valuable next change |
 
 The founder may use different wording. The orchestrator must infer the workflow from intent rather than require special commands.
 
@@ -105,7 +137,7 @@ The governed default flow for a normal feature is:
 ```text
 Founder problem
 → automatic clarification and repository inspection
-→ founder-approved behaviour
+→ founder + ChatGPT discuss options and agree on behaviour
 → OpenSpec specification
 → tickets only when multiple focused contexts are needed
 → Claude implements one approved slice
@@ -127,10 +159,11 @@ Technical evidence remains mandatory, but it must appear after the plain-languag
 A meaningful response must clearly separate:
 
 1. What has already happened
-2. What the system will do next
-3. What the founder needs to decide or do
+2. What the evidence or agent output means
+3. The available choices and recommendation
+4. What happens next only after the founder decides or approves
 
-When approval is required, recommend the strongest option and briefly explain why.
+When approval is required, recommend the strongest option and briefly explain why. A recommendation is not approval.
 
 Every meaningful response must end with:
 
@@ -152,4 +185,4 @@ The following remain manual even in Founder Autopilot Mode:
 - Public launch
 - Rollback when business impact is unclear
 
-Autopilot automates development operations. It does not remove founder authority or safety gates.
+Autopilot automates development operations. It does not remove collaborative product discussion, founder authority, or safety gates.

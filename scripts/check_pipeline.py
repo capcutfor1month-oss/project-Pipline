@@ -34,17 +34,23 @@ required_skill_sources = (
 required_phrases = {
     "docs/FOUNDER_AUTOPILOT.md": (
         "The founder is not responsible for",
+        "Collaborative strategy and decision rule",
+        "The founder and ChatGPT decide the next product move together",
+        "When the founder pastes Claude or Codex output",
         "The orchestration hub must automatically",
         "Founder-facing communication",
         "What you should do now",
         "Mandatory manual approval gates",
     ),
     "docs/FOUNDER_COMMUNICATION.md": (
+        "Explain-before-routing rule",
+        "A recommendation is not approval",
         "What has already happened",
         "What happens next",
         "What the founder needs to decide or do",
         "What you should do now",
         "Do not begin with a status table",
+        "Do not attach an unapproved implementation prompt by default",
         "Two-layer output rule",
     ),
     "docs/CONTEXT_MANAGEMENT.md": (
@@ -63,12 +69,24 @@ required_phrases = {
         "Installation versus activation",
         "Canonical-output rule",
     ),
+    "docs/DECISIONS.md": (
+        "DEC-014 — Collaborative founder decision rule",
+        "the default response is explanation and discussion",
+    ),
     "AGENTS.md": (
         "Founder Autopilot",
+        "Collaborative decision boundary",
+        "The founder and ChatGPT brainstorm",
+        "Do not automatically generate the next Claude implementation prompt",
         "Founder-friendly communication",
         "The orchestrator selects skills automatically",
         "What you should do now",
         "Never claim success without evidence",
+    ),
+    "CLAUDE.md": (
+        "Claude is the default primary production-code implementer",
+        "The founder and ChatGPT decide product direction together",
+        "Do not assume the next stage has been approved",
     ),
     "START_HERE.md": (
         "Access preflight",

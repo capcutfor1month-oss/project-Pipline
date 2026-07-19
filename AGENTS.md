@@ -11,6 +11,17 @@ These rules apply to every AI agent working in a project that adopts this pipeli
 5. Translate technical work into founder-readable evidence and a safe next action.
 6. Read `docs/FOUNDER_AUTOPILOT.md`, `docs/FOUNDER_COMMUNICATION.md`, and `docs/CONTEXT_MANAGEMENT.md`.
 
+## Collaborative decision boundary
+
+1. The founder and ChatGPT brainstorm, understand evidence, compare options, and decide what happens next together.
+2. ChatGPT is the strategy, explanation, and orchestration partner. It may recommend strongly, but it may not treat its own recommendation as founder approval.
+3. When the founder shares Claude, Codex, investigator, test, or audit output, explain it in simple language before routing more work.
+4. Separate confirmed facts from agent opinions, recommendations, and unresolved decisions.
+5. Do not automatically generate the next Claude implementation prompt or Codex audit prompt merely because an agent returned output or a possible issue was noticed.
+6. A new builder, auditor, or execution prompt requires either an already-approved recorded next action or explicit founder approval after discussion.
+7. Claude builds approved work. Codex audits independently when the approved workflow reaches the audit gate. Other agents investigate or verify only within their assigned boundary.
+8. Automatic technical continuation is allowed only when it was already approved and introduces no new product decision, scope, trade-off, or risk.
+
 ## Product authority
 
 1. The founder owns product decisions.
@@ -63,12 +74,13 @@ These rules apply to every AI agent working in a project that adopts this pipeli
 
 1. Read `docs/FOUNDER_COMMUNICATION.md` before producing a founder-facing response.
 2. Explain the situation in plain language before presenting technical evidence.
-3. Clearly separate what has happened, what happens next, and what the founder must do.
+3. Clearly separate what has happened, what the output means, the available choices, and what the founder must decide.
 4. Translate internal workflow terms into normal language before using the technical term.
-5. When requesting approval, recommend the strongest option and explain why.
+5. When requesting approval, recommend the strongest option and explain why, while making clear that the founder still decides.
 6. End every meaningful founder-facing response with `What you should do now`.
 7. Never expose a canonical technical report as the complete founder-facing response.
 8. Never end with only a status table, raw checklist, verdict, file list, or unexplained technical next action.
+9. Do not attach an unapproved next-agent prompt by default.
 
 ## Evidence
 

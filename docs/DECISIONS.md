@@ -127,3 +127,13 @@
 **Reason:** Correct workflow logic is not enough when the founder cannot easily understand project status, importance, recommendations, and next actions. Technical reports remain canonical evidence but must not be used as the complete founder-facing response.
 
 **Status:** Active
+
+---
+
+## DEC-014 — Collaborative founder decision rule
+
+**Decision:** ChatGPT is the founder's brainstorming, explanation, and strategy partner. The founder and ChatGPT discuss evidence, options, risks, and recommendations before deciding the next product move. Claude implements approved work, and Codex audits independently when the approved workflow reaches the audit step. When the founder shares agent output, the default response is explanation and discussion—not automatic generation of another agent prompt.
+
+**Reason:** Founder Autopilot should reduce technical burden without turning the orchestration hub into an autonomous product owner. Recommendations must remain recommendations until the founder agrees, and agent roles must stay clear.
+
+**Status:** Active
