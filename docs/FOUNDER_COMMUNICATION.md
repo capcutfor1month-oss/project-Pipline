@@ -87,6 +87,23 @@ Include one or two practical tips, warnings, or examples when they help the foun
 
 Do not add filler advice merely to satisfy this section.
 
+## Claude build-prompt action preview
+
+Whenever the orchestration hub provides a Claude build prompt, place this immediately after the prompt:
+
+### What Claude will actually do
+
+Use three to eight short bullets describing concrete, observable actions such as:
+
+- Inspecting the named repository and approved source files
+- Creating or updating a specific folder or file
+- Running a named validation or link check
+- Avoiding unrelated changes
+- Stopping at a defined approval checkpoint
+- Reporting files changed, blockers, and the exact next action
+
+The bullets must describe what Claude will physically do after receiving the prompt. Do not restate the intended outcome, list vague abilities, repeat the prompt, or add a bulky explanation.
+
 ### 8. Technical details
 
 Place technical evidence after the understandable explanation.
