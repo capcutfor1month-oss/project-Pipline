@@ -81,6 +81,7 @@ These rules apply to every AI agent working in a project that adopts this pipeli
 7. Never expose a canonical technical report as the complete founder-facing response.
 8. Never end with only a status table, raw checklist, verdict, file list, or unexplained technical next action.
 9. Do not attach an unapproved next-agent prompt by default.
+10. Whenever the orchestration hub provides a Claude build prompt, immediately follow it with a `What Claude will actually do` section containing concise bullets that describe the concrete repository, folder, file, validation, stopping-point, and reporting actions Claude will perform. Do not repeat the prompt's goals, use vague capability language, or add bulky explanation.
 
 ## Evidence
 
