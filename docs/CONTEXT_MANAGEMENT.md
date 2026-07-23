@@ -4,13 +4,119 @@
 
 AI development quality degrades when a working context becomes overloaded, repetitive, contradictory, or detached from repository truth. The orchestration hub manages context automatically; the founder does not manage token budgets or decide when to clear a session.
 
+This pipeline treats context engineering as an operating discipline, not merely as writing larger prompts.
+
+- **Prompt engineering** defines how the current instruction, constraints, examples, and requested output are worded.
+- **Context engineering** decides what verified information, tools, memory, history, and schemas the working agent should—and should not—receive for its current step.
+
+Both are required. A well-written prompt cannot compensate for missing, stale, irrelevant, or contradictory context.
+
 ## Core rule
 
 ```text
 The repository stores durable truth.
 A focused context performs one bounded stage or implementation slice.
+Each model call receives the smallest sufficient high-signal context.
 Temporary chat history is never the only source of an approved decision.
 ```
+
+## Runtime context stack
+
+For every meaningful agent call, the orchestration hub assembles only the relevant parts of this stack:
+
+1. **Instructions** — role, approved objective, constraints, safety boundaries, and permitted actions
+2. **Current user input** — the founder's present request or approved task
+3. **Retrieved project truth** — only the canonical files, specification sections, code, evidence, and decisions needed now
+4. **Tools** — only capabilities relevant to the current stage
+5. **Short-term state** — recent progress, changed facts, open blockers, and checks already performed
+6. **Long-term project memory** — stable approved facts selected from the repository on demand
+7. **Output contract** — the required schema, report shape, evidence, and stopping point
+
+Do not automatically load the complete repository, full chat history, all skills, all research, or every prior report into each call.
+
+## Context-engineering cycle
+
+Use this cycle throughout the pipeline:
+
+### Write
+
+Store durable decisions, specifications, evidence, current state, and unresolved blockers outside the chat context in their canonical repository locations. Temporary scratch notes may support work, but must not silently become project truth.
+
+### Select
+
+Retrieve only the material needed for the current stage and objective. Prefer targeted repository paths, specification sections, relevant code, and a bounded evidence subset over broad context dumps.
+
+### Compress
+
+Convert large histories, logs, research sets, and previous-stage output into loss-aware handoffs. Preserve decisions, provenance, constraints, failures, uncertainty, and acceptance criteria; remove repetition and unrelated detail.
+
+### Isolate
+
+Separate stages or agents when their responsibilities, evidence, or evaluation criteria differ. Researchers, builders, reviewers, auditors, and generation tools should receive stage-specific context so noisy output from one role does not contaminate another.
+
+```text
+write durable truth
+→ select relevant evidence
+→ compress without losing decisions
+→ isolate the next responsibility
+→ execute one bounded step
+→ record the verified result
+```
+
+## Per-call context check
+
+Before invoking an agent or generation tool, verify:
+
+- What exact decision or output is required now?
+- Which source is authoritative for each required fact?
+- What is the smallest evidence set sufficient to do the work?
+- Are any included facts unverified, stale, duplicated, or contradictory?
+- Which tools are genuinely needed?
+- What must be excluded because it belongs to another stage?
+- What output contract and stopping boundary apply?
+- Where will the verified result be written?
+
+If required context is missing, return a precise blocker or request the missing source. Do not compensate by inventing facts or padding the prompt.
+
+## Common context failures
+
+Watch for:
+
+- **Poisoning** — an invented or incorrect fact enters a handoff and is reused as truth
+- **Distraction** — large history or tool output obscures the current task
+- **Confusion** — irrelevant context changes the model's direction
+- **Clash** — two sources disagree and no authority rule resolves them
+
+When detected, stop progression, identify the authoritative source, correct the durable record when approved, and rebuild the next context from verified material.
+
+## Prompt construction after context selection
+
+Only after context is selected should the orchestration hub write the task prompt. The prompt should state:
+
+```text
+Objective
+Authoritative inputs
+Requirements and acceptance criteria
+Relevant tools
+Output contract
+Permissions and prohibitions
+Stopping point
+Required return
+```
+
+Do not repeat entire canonical documents when precise references or retrieved excerpts are sufficient. Do not remove critical decisions, safety boundaries, provenance, or verification requirements merely to shorten the prompt.
+
+## External generation tools
+
+When the pipeline uses a bounded generation tool such as a design, media, code, or music generator:
+
+1. Build the generation packet upstream from verified project context.
+2. Compress it to only the controls that the tool can use.
+3. Keep source description, desired transformation, must-preserve traits, and prohibited traits distinct when the tool supports them.
+4. Treat the final text entered into the tool as prompt engineering produced by the upstream context-engineering process.
+5. Store approved inputs and outputs in the project-specific repository when they become durable evidence.
+
+Do not dump full project history, complete research corpora, or unrelated agent reasoning into a generation field.
 
 ## Same-context work
 
@@ -84,10 +190,11 @@ A compact handoff should reference repository documents rather than copy the ent
 Objective
 Approved specification and ticket
 Current branch and commit
+Authoritative inputs and provenance
 Files or areas in scope
 Checks already run
 Known failures or uncertainty
-Required return
+Required return and stopping point
 ```
 
 ## Fresh-context review
@@ -115,9 +222,11 @@ Temporary summaries, exploratory notes, raw logs, and prototype output must not 
 The founder must never be told to:
 
 - Calculate context usage
+- Choose what to retrieve or exclude
 - Choose when to clear the context
 - Decide whether to create tickets
 - Invoke a handoff skill
 - Reconstruct a specification from old chat messages
+- Convert project truth into a tool-specific prompt manually
 
 The orchestration hub makes these decisions and explains only the product-relevant result and next approval gate.
