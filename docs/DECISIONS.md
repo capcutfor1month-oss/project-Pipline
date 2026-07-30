@@ -137,3 +137,22 @@
 **Reason:** Founder Autopilot should reduce technical burden without turning the orchestration hub into an autonomous product owner. Recommendations must remain recommendations until the founder agrees, and agent roles must stay clear.
 
 **Status:** Active
+
+---
+
+## DEC-015 — Repository-first rule
+
+**Decision:** The Git repository is the canonical source of truth for all architectural decisions, specifications, workflows, ADRs, implementation plans, validation results, and implementation history. Conversation history is working memory only and must never be relied upon as long-term project memory. Any approved decision that future human or AI collaborators—including Claude, Codex, ChatGPT, or others—may need to understand, continue, audit, or build upon must be documented, verified, and committed before the working session is considered complete.
+
+A session is complete only when:
+
+1. Approved durable work has been written to the appropriate canonical repository location.
+2. The resulting repository changes have been verified.
+3. The approved changes have been committed.
+4. The repository accurately records the current project state, unresolved blockers, and next approved action where relevant.
+
+All collaborators must recover project state from the repository before relying on conversation history. If repository state conflicts with a prior conversation, the repository remains authoritative until an approved commit explicitly supersedes it.
+
+**Reason:** AI session memory can be compacted, lost, incomplete, or inconsistent across tools. A committed repository checkpoint gives every human and AI collaborator the same recoverable, auditable project truth.
+
+**Status:** Active
