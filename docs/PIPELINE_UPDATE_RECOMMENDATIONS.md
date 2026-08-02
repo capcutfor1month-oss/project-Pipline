@@ -85,7 +85,7 @@ Builder-side fresh-context review is valuable and should happen before handoff. 
 
 After this governance update:
 
-1. Complete risk-based `docs/TESTING.md`.
+1. ~~Complete risk-based `docs/TESTING.md`.~~ Done — see `docs/TESTING.md` for risk tiers, required evidence per tier, and evidence-to-report mapping.
 2. Complete preview, production, rollback, and verification gates in `docs/RELEASE.md`.
 3. Add bootstrap automation and idempotency tests.
 4. Add incident and hotfix workflow.
