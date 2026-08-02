@@ -241,7 +241,21 @@ Required return
 
 ## Context recovery
 
-Every new focused conversation reads:
+Reading the complete canonical governance corpus is an orchestrator responsibility. A bounded downstream worker does not repeat it.
+
+### Orchestrator recovery
+
+The orchestration session reads the canonical governance needed to:
+
+- recover repository state
+- resolve the active change
+- determine the current stage or request route
+- read risk classification and applicable evidence profiles
+- recover validation-after-lock or incident context
+- identify required approval and audit gates
+- compile the worker brief
+
+This draws on, as needed:
 
 - `docs/CURRENT.md`
 - `docs/DECISIONS.md`
@@ -251,6 +265,22 @@ Every new focused conversation reads:
 - `docs/CONTEXT_MANAGEMENT.md`
 - `docs/TOOLING.md`
 - `docs/SKILLS.md`
+- `docs/TESTING.md`
+- `docs/RELEASE.md`
 - Active OpenSpec change
+
+### Bounded worker session
+
+A downstream worker — Claude, Codex, an investigator, or any other bounded execution session — does not receive the complete governance corpus by default. It receives only the compiled, task-relevant brief that orchestrator recovery prepares (see `prompts/start-project-session.md` for the required brief contract).
+
+The worker may read additional canonical sources beyond the brief only when:
+
+- the compiled brief explicitly names them;
+- a contradiction or missing authority surfaces during the work and recovery is required;
+- the task itself is evolving or auditing the Project-Pipeline governance corpus, rather than executing against an adopted project.
+
+The compiled brief is temporary execution context, not a new record. Repository documents remain the authoritative source, and the brief never becomes a competing source of truth. If the state needed to compile or execute the brief is unknown, stale, missing, or contradictory, the session does not guess or silently choose a workflow — it fails closed and returns to the orchestrator for recovery.
+
+This does not add a new stage, state model, mode, taxonomy, or lifecycle — it is a division of an existing responsibility (context recovery) between the orchestrator and the worker it hands work to.
 
 Chat is the control room. The repository is the memory.
