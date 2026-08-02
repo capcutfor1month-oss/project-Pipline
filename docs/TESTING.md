@@ -17,35 +17,62 @@ The universal pipeline itself is validated by `scripts/check_pipeline.py` and `.
 
 This self-validation runs on every change to the pipeline repository itself and does not scale by risk — it is a fixed structural check.
 
-## Product-level risk tiers
+## Product-level risk classification
 
-After adoption into a product repository, application-specific testing is added only after the stack is selected. Every approved change is then classified into one tier before implementation. The specification records the tier and the reason.
+After adoption into a product repository, application-specific testing is added only after the stack is selected. Every approved change then records two independent things before implementation: one governing **base tier**, and every applicable **specialized evidence profile**. These are not positions on one combined ordering — a change has exactly one base tier and zero, one, or both specialized profiles at the same time.
 
-| Tier | Examples | Required evidence |
+### Base tier
+
+| Base tier | Examples | Required evidence |
 |---|---|---|
 | **Trivial** | Copy, docs, comments, non-behavioural refactor | Reviewed repository update. No test run required beyond existing CI. |
 | **Low** | Internal tool, non-customer-facing config, isolated bug fix with existing test coverage | Static checks, unit tests covering the change, founder preview |
 | **Standard** | Normal feature, UI change, new endpoint without sensitive data | Static checks, unit tests, integration tests, builder-side review, CI, founder preview |
-| **UI-sensitive** | New or changed user-facing flow, navigation, forms | Standard tier plus Playwright repeatable browser tests and Antigravity exploratory UX verification, recorded in `ux-report.md` |
-| **Data-sensitive** | Schema or migration change, data model change, bulk write | Standard tier plus migration test, data-preservation check, tenancy-isolation check, rollback plan recorded in `verification-report.md` |
-| **High** | Authentication, payments, secrets, tenant isolation, production migration, customer data | Data-sensitive or UI-sensitive tier (whichever applies) plus mandatory Codex independent audit and founder manual approval before release |
-| **Incident** | Production is broken now | Dedicated incident workflow — reproduction evidence, smallest fix, regression test, rapid audit, production verification. Normal gate order may compress but not disappear. |
+| **High** | Authentication, payments, secrets, tenant isolation, production migration, customer data | Standard-tier evidence plus mandatory Codex independent audit and founder manual approval before release |
+| **Incident** | Production is broken now | Dedicated incident workflow — reproduction evidence, smallest fix, regression test, rapid independent audit when operationally possible, production verification. Normal gate order may compress but not disappear. |
 
-This table is the same risk scaling already declared in `docs/PIPELINE.md`; this document defines what evidence each tier must produce, not a separate policy.
+### Specialized evidence profiles
+
+| Profile | Applies when | Additional required evidence |
+|---|---|---|
+| **UI-sensitive** | The change touches a user-facing flow, navigation, or forms | Playwright repeatable browser tests and Antigravity exploratory UX verification, recorded in `ux-report.md` |
+| **Data-sensitive** | The change touches schema, migrations, the data model, or bulk writes | Migration test, data-preservation check, tenancy-isolation check, rollback plan, recorded in `verification-report.md` |
+
+Required evidence is cumulative: base-tier evidence plus every applicable profile's evidence. High and Incident work inherits all applicable UI-sensitive and Data-sensitive evidence rather than substituting one profile for the base tier's own requirements — a High-tier change that also touches the UI and the data model must satisfy all three evidence sets together, not whichever one "applies most."
+
+This model is the same risk scaling already declared in `docs/PIPELINE.md`; this document defines what evidence each base tier and profile must produce, not a separate policy.
+
+## Canonical recording surface
+
+Classification is recorded in the active change's canonical OpenSpec `spec.md`, or in the project-approved lightweight approval record when the small-safe-change workflow legitimately does not use a full OpenSpec change. The record must state:
+
+- the governing base tier
+- the rationale
+- every applicable specialized evidence profile
+- any explicit independent-audit requirement beyond the deterministic triggers below
+
+This classification is per-change state. It is not duplicated into `docs/CURRENT.md`, which tracks project-level current status, not individual change classification.
 
 ## Test layers
 
-Available layers, used only where the tier requires them:
+Available layers, used only where the base tier or an applicable profile requires them:
 
 1. **Static checks** — lint, type check, pipeline validation
 2. **Unit tests** — the smallest unit covering the changed behaviour
 3. **Integration tests** — cross-module or cross-service behaviour the change affects
-4. **End-to-end browser tests** — Playwright, for UI-sensitive tier and above
-5. **Security tests** — for High tier: auth, injection, access control, secret handling
-6. **Independent audit** — Codex, for High tier and when risk otherwise requires it
-7. **Founder usability testing** — manual approval step before release, for Standard tier and above
+4. **End-to-end browser tests** — Playwright, required whenever the UI-sensitive profile applies
+5. **Security tests** — required whenever the High base tier applies: auth, injection, access control, secret handling
+6. **Independent audit** — Codex, required when any of the following applies:
+   - the base tier is High
+   - the work is handled as an Incident and independent audit is operationally possible
+   - the approved change record explicitly requires it
+   - the founder explicitly requires it
+   - a documented risk reclassification (see "Tier mismatch" below) escalates the change to a category requiring audit
 
-Do not add a layer a tier does not require. A Trivial or Low-tier change that grows a Playwright suite or demands a Codex audit is a pipeline defect in the other direction — wasted verification cost with no matching risk.
+   Lower-tier work does not require Codex by default merely because it is a Standard/Normal feature. Builder-side review is never a substitute where independent audit is required.
+7. **Founder usability testing** — manual approval step before release, for Standard base tier and above
+
+Do not add a layer the recorded base tier and profiles do not require. A Trivial or Low-tier change that grows a Playwright suite or demands a Codex audit is a pipeline defect in the other direction — wasted verification cost with no matching risk.
 
 ## Evidence mapping
 
@@ -61,4 +88,4 @@ Do not create a separate test-tracking document or duplicate issue system for ev
 
 ## Tier mismatch
 
-If investigation or implementation reveals the actual risk is higher than the tier recorded in the specification (for example, a "Standard" change turns out to touch authentication), stop and reclassify before continuing. Do not finish implementation under the original tier and add missing evidence retroactively.
+If investigation or implementation reveals the actual risk is higher than the base tier or specialized profiles recorded in the specification (for example, a "Standard" change turns out to touch authentication, or turns out to be data-sensitive), stop and reclassify before continuing. Do not finish implementation under the original classification and add missing evidence retroactively.

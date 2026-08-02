@@ -35,7 +35,7 @@ Founder Autopilot communication experience improved; operational validation pend
 - Founder summary separated from canonical technical evidence
 - Mandatory `What you should do now` ending for meaningful responses
 - Pipeline update recommendations recorded in the repository
-- Risk-based validation strategy completed in `docs/TESTING.md` (risk tiers, required evidence per tier, evidence-to-report mapping)
+- Risk-based validation strategy completed in `docs/TESTING.md` (base risk tiers, cumulative specialized evidence profiles, canonical recording surface, deterministic independent-audit triggers)
 
 ## Registered skill sources
 
