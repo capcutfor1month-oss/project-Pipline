@@ -156,3 +156,15 @@ All collaborators must recover project state from the repository before relying 
 **Reason:** AI session memory can be compacted, lost, incomplete, or inconsistent across tools. A committed repository checkpoint gives every human and AI collaborator the same recoverable, auditable project truth.
 
 **Status:** Active
+
+---
+
+## DEC-016 — Bounded validation after lock
+
+**Decision:** Once a change is locked and exposed to real-world evidence, any repair must remain inside the originally approved intent, scope, acceptance criteria, validation target, and recorded risk tier. Each repair returns to the same validation it failed, not a new one. Repair depth and required audit rigor follow the risk tier already recorded for the change in `docs/TESTING.md`; this decision does not define a separate attempt count or bounding mechanism. If a repair would require changing the locked scope or acceptance criteria, exceeds its tier-appropriate bounded attempt allowance, or leaves risk unresolved, escalate through the existing founder-approval, incident, and manual rollback mechanisms rather than silently expanding scope or looping indefinitely.
+
+This decision extends the existing scope-discipline rule in `AGENTS.md` ("stay within approved scope") and the risk-reclassification rule in `docs/TESTING.md` ("stop and reclassify... do not finish under the original tier") to the moment after lock, rather than creating a new lifecycle abstraction. It does not introduce a named operating mode, a new report type, or a new recovery schema — repair evidence is recorded as a further instance of `verification-report.md` against the same change, and cross-session state is recorded in the existing `Active change` and `Exact next action` fields of `docs/CURRENT.md`.
+
+**Reason:** Without this rule, a change that fails real-world validation after lock has no defined boundary between "repair the approved change" and "quietly redefine it," and no defined stopping point between "keep trying" and "escalate." Stating the boundary as an extension of already-approved scope-discipline and risk-tier rules keeps the pipeline's existing architecture — stages, risk tiers, routing, and canonical reports — as the only sources of truth, instead of adding a competing one.
+
+**Status:** Active

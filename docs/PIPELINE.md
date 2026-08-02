@@ -100,6 +100,7 @@ Technical evidence follows the understandable explanation. Every meaningful foun
 | Production incident | Freeze unrelated work, evidence, diagnosis, hotfix, regression test, rapid audit, approval, production verification |
 | Audit request | Read-only independent review of specification, diff, evidence, security, regressions, and tests |
 | Release request | Verify preview or production gates before any deployment action |
+| Validation after lock | Validation remains the parent context; repair uses the existing bug/incident stages within the original locked scope and recorded risk tier; return to the same validation target with fresh verification and audit; escalate through founder-approval, incident, and manual rollback gates when the bounded envelope is exceeded (DEC-016) |
 | Prioritisation | Recover product evidence, blockers, risks, and propose the smallest valuable next change |
 
 ## Stage ownership and internal skill routing
