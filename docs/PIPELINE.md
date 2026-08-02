@@ -29,7 +29,8 @@ Playwright repeatable browser tests
     ↓
 Antigravity exploratory UX verification
     ↓
-Codex independent audit
+Codex independent audit when required by recorded risk tier or approved change
+(mandatory for High; rapid audit for Incident when operationally possible — see docs/TESTING.md)
     ↓
 Founder manual test and approval
     ↓
@@ -93,7 +94,7 @@ Technical evidence follows the understandable explanation. Every meaningful foun
 | New idea | Discovery, assumptions, feasibility, clarification, and product approval |
 | Confusing experience | User journey clarification, repository inspection, scoped specification, UX verification |
 | Small safe change | Brief inspection, lightweight approval record, implementation, checks, founder preview |
-| Normal feature | Clarification, specification, investigation, implementation, review, CI, audit, founder test |
+| Normal feature | Clarification, specification, investigation, implementation, review, required tests, CI, independent Codex audit when required by the recorded risk policy or approved change, founder approval where required |
 | Large feature | Clarification, prototype if needed, complete specification, tickets, one focused context per slice, final spec comparison |
 | Bug | Reproduction, diagnosis, regression test, smallest fix, checks, risk-scaled audit |
 | Production incident | Freeze unrelated work, evidence, diagnosis, hotfix, regression test, rapid audit, approval, production verification |
@@ -230,11 +231,11 @@ Required return
 
 - Documentation change: ChatGPT → reviewed repository update
 - Small safe code change: lightweight specification → Claude → CI → founder preview
-- Normal feature: clarification → specification → investigation → Claude → builder review → CI → Codex → founder
-- UI-sensitive feature: add Playwright and Antigravity
-- Database-sensitive feature: add migration, preservation, tenancy, and recovery evidence
-- Authentication, payments, secrets, or tenant-isolation change: full high-risk gates and controlled release
-- Production incident: dedicated incident workflow and production verification
+- Normal feature (Standard base tier): clarification → specification → investigation → Claude → builder review → required tests → CI → independent Codex audit only when the recorded risk policy or approved change requires it → founder approval where required
+- UI-sensitive profile: add Playwright and Antigravity, cumulative with whatever base tier applies
+- Data-sensitive profile: add migration, preservation, tenancy, and recovery evidence, cumulative with whatever base tier applies
+- Authentication, payments, secrets, or tenant-isolation change (High base tier): full high-risk gates, mandatory independent Codex audit, and controlled release
+- Production incident: dedicated incident workflow, rapid independent audit when operationally possible, and production verification
 - Launch or growth change: establish product-marketing context and measurable evidence first
 
 ## Context recovery
