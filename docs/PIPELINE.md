@@ -29,7 +29,8 @@ Playwright repeatable browser tests
     ↓
 Antigravity exploratory UX verification
     ↓
-Codex independent audit
+Codex independent audit when required by recorded risk tier or approved change
+(mandatory for High; rapid audit for Incident when operationally possible — see docs/TESTING.md)
     ↓
 Founder manual test and approval
     ↓

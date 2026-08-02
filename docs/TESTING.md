@@ -70,7 +70,7 @@ Available layers, used only where the base tier or an applicable profile require
    - a documented risk reclassification (see "Tier mismatch" below) escalates the change to a category requiring audit
 
    Lower-tier work does not require Codex by default merely because it is a Standard/Normal feature. Builder-side review is never a substitute where independent audit is required.
-7. **Founder usability testing** — manual approval step before release, for Standard base tier and above
+7. **Founder usability testing** — manual approval step before release, required for the Low, Standard, High, and Incident base tiers
 
 Do not add a layer the recorded base tier and profiles do not require. A Trivial or Low-tier change that grows a Playwright suite or demands a Codex audit is a pipeline defect in the other direction — wasted verification cost with no matching risk.
 
