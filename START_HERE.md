@@ -38,7 +38,7 @@ When access is missing or partial, do not guess project state. Report the limita
 When the first meaningful message contains a GitHub project URL:
 
 1. Recognize `capcutfor1month-oss/project-Pipline` as the canonical common pipeline.
-2. When the supplied URL resolves to this pipeline/governance repository itself — including any copy or fork identified by its own canonical documents (`README.md`, `BOOTSTRAP_CONTRACT.md`, `MANIFEST.md`, `AGENTS.md`) — rather than a separate target project, do not select, recommend, or name a target project from this repository's own internal roadmap notes, prior conversation, or unrelated account context. Ask the founder whether they want to work on the pipeline itself or provide a separate target project/repository, and wait for that answer before continuing.
+2. When the supplied URL resolves to this pipeline/governance repository itself — including any copy or fork identified by its own canonical documents (`README.md`, `BOOTSTRAP_CONTRACT.md`, `MANIFEST.md`, `AGENTS.md`) — rather than a separate target project, do not select, recommend, or name a target project from this repository's own internal roadmap notes, prior conversation, or unrelated account context. Offer the founder four neutral paths and wait for their choice before continuing: start a new project, resume an existing project, brainstorm and shape a new idea, or work on the Project-Pipeline itself. Do not require a target repository before brainstorming.
 3. Read:
    - `README.md`
    - `BOOTSTRAP_CONTRACT.md`
