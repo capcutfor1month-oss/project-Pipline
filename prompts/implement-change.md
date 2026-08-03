@@ -19,7 +19,7 @@ The orchestration hub prepares this bounded implementation handoff. The founder 
 - Add or update tests for changed behaviour and regressions.
 - Do not alter unrelated behaviour or perform opportunistic refactoring.
 - Do not access production secrets, production data, or production infrastructure.
-- Run required static checks, tests, build, migration checks, and project-specific gates.
+- Run required static checks, build, migration checks, and project-specific gates. Start test runs with the smallest tests covering the changed behaviour; expand to broader or full-suite runs only when recorded risk, dependency surface, failure or uncertainty, or an explicit project gate requires it. Keep commands, diffs, logs, and test output bounded and summarized rather than pasted in full.
 - Use a fresh reviewer context or subagent to compare the result against the complete specification, code quality, test quality, and unrelated changes when appropriate.
 - Builder-side review does not replace Codex.
 - Update `tasks.md` and `implementation-report.md` truthfully.
