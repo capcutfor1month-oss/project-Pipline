@@ -38,6 +38,7 @@ Founder Autopilot communication experience improved; operational validation pend
 - Risk-based validation strategy completed in `docs/TESTING.md` (base risk tiers, cumulative specialized evidence profiles, canonical recording surface, deterministic independent-audit triggers)
 - Implementation test/output scope in `prompts/implement-change.md` bounded to the smallest tests covering the changed behaviour, expanding only on recorded risk, dependency surface, failure/uncertainty, or an explicit project gate, with commands/diffs/logs/test output kept summarized (commit `85ddab1`)
 - Claude session action, canonical route, and compiled task brief separated as three distinct handoff parts in `docs/CONTEXT_MANAGEMENT.md`, wired into `START_HERE.md`'s fresh-session steps (lock founder decisions before agent prompts, choose continue/`/compact`/`/clear`/`/help` before each handoff, display the session action separately from the task prompt, interpret worker reports before routing, and not rely on old chat memory) (commit `203da50`)
+- Fresh-session portability defect fixed: `START_HERE.md` now asks the founder whether to work on the pipeline itself or supply a separate target project when only the pipeline/governance repository (or any copy or fork) is given, instead of recommending a named project; hardcoded personal-project references removed from `docs/CURRENT.md`'s "Exact next action" (commit `8677694`) and from `docs/PIPELINE_UPDATE_RECOMMENDATIONS.md` and `docs/INDEX.md`'s pilot-plan wording (commit `0e2e621`)
 
 ## Registered skill sources
 
