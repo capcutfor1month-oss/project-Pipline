@@ -36,6 +36,7 @@ Founder Autopilot communication experience improved; operational validation pend
 - Mandatory `What you should do now` ending for meaningful responses
 - Pipeline update recommendations recorded in the repository
 - Risk-based validation strategy completed in `docs/TESTING.md` (base risk tiers, cumulative specialized evidence profiles, canonical recording surface, deterministic independent-audit triggers)
+- Implementation test/output scope in `prompts/implement-change.md` bounded to the smallest tests covering the changed behaviour, expanding only on recorded risk, dependency surface, failure/uncertainty, or an explicit project gate, with commands/diffs/logs/test output kept summarized (commit `85ddab1`)
 
 ## Registered skill sources
 
