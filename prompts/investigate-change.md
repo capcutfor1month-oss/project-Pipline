@@ -4,7 +4,7 @@ The orchestration hub invokes this prompt. The founder does not select investiga
 
 ## Instructions
 
-- Read shared agent rules, canonical project documents, the founder communication contract, and the active OpenSpec change.
+- Work from the orchestrator's compiled brief (`docs/PIPELINE.md` → "Context recovery"; `prompts/start-project-session.md`) rather than re-reading shared agent rules, canonical project documents, or the active OpenSpec change directly, except when the brief names one of them, a contradiction or missing authority surfaces, or the task is auditing the Project-Pipeline governance corpus itself. Read `docs/FOUNDER_COMMUNICATION.md` directly for the founder-facing return.
 - Confirm repository, branch, and exact change being investigated.
 - Default to read-only and do not modify files, commit, deploy, or access production data.
 - Use approved repository-aware clarification or domain-analysis skills only when routed by the orchestration hub.

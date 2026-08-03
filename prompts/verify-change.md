@@ -4,7 +4,7 @@ The orchestration hub invokes verification against the exact implementation comm
 
 ## Instructions
 
-- Read the complete approved specification, current ticket status, implementation report, founder communication contract, and project testing policy.
+- Work from the orchestrator's compiled brief (`docs/PIPELINE.md` → "Context recovery"; `prompts/start-project-session.md`) rather than re-reading the complete approved specification, ticket status, implementation report, or project testing policy directly, except when the brief names one of them, a contradiction or missing authority surfaces, or the task is auditing the Project-Pipeline governance corpus itself. Read `docs/FOUNDER_COMMUNICATION.md` directly for the founder-facing return.
 - Confirm repository, branch, commit, and environment tested.
 - Run the repeatable checks required by the change risk.
 - Verify every acceptance criterion, important failure state, and relevant historical-data behaviour.

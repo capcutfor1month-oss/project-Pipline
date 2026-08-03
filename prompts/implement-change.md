@@ -4,7 +4,7 @@ The orchestration hub prepares this bounded implementation handoff. The founder 
 
 ## Preflight
 
-- Read `AGENTS.md`, `CLAUDE.md`, `docs/FOUNDER_COMMUNICATION.md`, canonical project documents, and the complete active OpenSpec change.
+- Work from the orchestrator's compiled brief (`docs/PIPELINE.md` → "Context recovery"; `prompts/start-project-session.md`) rather than re-reading `AGENTS.md`, `CLAUDE.md`, canonical project documents, or the complete OpenSpec change directly, except when the brief names one of them, a contradiction or missing authority surfaces, or the task is auditing the Project-Pipeline governance corpus itself. Read `docs/FOUNDER_COMMUNICATION.md` directly for the founder-facing return.
 - Confirm repository, approved branch, working-tree state, exact specification, and current ticket.
 - Confirm whether committing is permitted. Merging and deployment are not permitted unless separately stated.
 - State intended files or areas before editing.
