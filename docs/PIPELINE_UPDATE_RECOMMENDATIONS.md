@@ -90,13 +90,13 @@ After this governance update:
 3. Add bootstrap automation and idempotency tests.
 4. Add incident and hotfix workflow.
 5. Add formal pipeline versioning and adoption compatibility reports.
-6. Pilot the complete workflow on Swadhyay Portal.
+6. Pilot the complete workflow on a target project the founder supplies.
 
-## Swadhyay pilot
+## Target-project pilot
 
 ### Round 1 — Adoption and recovery only
 
-- Start from the Swadhyay repository URL
+- Start from the founder-supplied target project repository URL
 - Recover repository state and confidence
 - Detect missing or conflicting pipeline files
 - Apply compatible prerequisites on a setup branch

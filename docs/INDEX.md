@@ -23,7 +23,7 @@ This repository is the canonical source for the universal project pipeline.
 | `docs/DECISIONS.md` | Durable pipeline decisions |
 | `docs/TESTING.md` | Validation strategy |
 | `docs/RELEASE.md` | Pipeline version and adoption guidance |
-| `docs/PIPELINE_UPDATE_RECOMMENDATIONS.md` | Approved improvement roadmap and Swadhyay pilot plan |
+| `docs/PIPELINE_UPDATE_RECOMMENDATIONS.md` | Approved improvement roadmap and pilot plan |
 
 ## Approved external skill sources
 
