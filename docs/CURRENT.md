@@ -37,6 +37,7 @@ Founder Autopilot communication experience improved; operational validation pend
 - Pipeline update recommendations recorded in the repository
 - Risk-based validation strategy completed in `docs/TESTING.md` (base risk tiers, cumulative specialized evidence profiles, canonical recording surface, deterministic independent-audit triggers)
 - Implementation test/output scope in `prompts/implement-change.md` bounded to the smallest tests covering the changed behaviour, expanding only on recorded risk, dependency surface, failure/uncertainty, or an explicit project gate, with commands/diffs/logs/test output kept summarized (commit `85ddab1`)
+- Claude session action, canonical route, and compiled task brief separated as three distinct handoff parts in `docs/CONTEXT_MANAGEMENT.md`, wired into `START_HERE.md`'s fresh-session steps (lock founder decisions before agent prompts, choose continue/`/compact`/`/clear`/`/help` before each handoff, display the session action separately from the task prompt, interpret worker reports before routing, and not rely on old chat memory) (commit `203da50`)
 
 ## Registered skill sources
 
@@ -62,4 +63,4 @@ The communication contract is defined, but it still needs pipeline validation an
 
 ## Exact next action
 
-Validate and merge the Founder-Friendly Communication Contract, then test fresh-session recovery and one real project stage on the personal AI content project or Swadhyay Portal. Treat any response that ends with a raw status table, technical verdict, or unexplained next action as a pipeline defect.
+Validate and merge the Founder-Friendly Communication Contract, then test fresh-session recovery and one real project stage on a target project the founder supplies. Treat any response that ends with a raw status table, technical verdict, or unexplained next action as a pipeline defect.

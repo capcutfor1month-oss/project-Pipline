@@ -38,7 +38,8 @@ When access is missing or partial, do not guess project state. Report the limita
 When the first meaningful message contains a GitHub project URL:
 
 1. Recognize `capcutfor1month-oss/project-Pipline` as the canonical common pipeline.
-2. Read:
+2. When the supplied URL resolves to this pipeline/governance repository itself — including any copy or fork identified by its own canonical documents (`README.md`, `BOOTSTRAP_CONTRACT.md`, `MANIFEST.md`, `AGENTS.md`) — rather than a separate target project, do not select, recommend, or name a target project from this repository's own internal roadmap notes, prior conversation, or unrelated account context. Ask the founder whether they want to work on the pipeline itself or provide a separate target project/repository, and wait for that answer before continuing.
+3. Read:
    - `README.md`
    - `BOOTSTRAP_CONTRACT.md`
    - `MANIFEST.md`
@@ -49,25 +50,25 @@ When the first meaningful message contains a GitHub project URL:
    - `docs/TOOLING.md`
    - `docs/SKILLS.md`
    - `AGENTS.md`
-3. Inspect the target repository before advising or writing.
-4. Determine whether the target is empty, a starter repository, or an active existing product.
-5. Search for target-project canonical files and the active OpenSpec change.
-6. Recover current project state from GitHub rather than asking the founder to repeat old context.
-7. Detect whether the common pipeline and governed skills layer are missing, partial, or installed.
-8. If missing, propose or apply the bootstrap according to `BOOTSTRAP_CONTRACT.md`.
-9. If installed, continue from the recorded next action or the founder's new request.
-10. Classify the request automatically: continuation, idea, clarification, feature, bug, incident, audit, release, or prioritisation.
-11. Select the smallest relevant skills and tools internally. Never require the founder to know or invoke them.
-12. Ask only product-level questions that require founder judgment.
-13. Decide whether work fits one focused context or requires a durable specification, tickets, and handoffs.
-14. Do not start coding, architecture selection, marketing claims, destructive actions, or production changes without the required approval.
-15. Before generating any agent or build prompt, confirm the decision it depends on is an already-approved recorded next action, or lock it with the founder first. Do not generate the prompt from an unapproved recommendation (see `AGENTS.md` → "Collaborative decision boundary").
-16. Before each handoff to Claude, decide the session action: continue with no slash command if the same bounded task has healthy context; `/compact` if the same task's context is overloaded or drifting; `/clear` if the task is genuinely fresh, unrelated, or independently scoped; `/help` if command availability or syntax is uncertain.
-17. Select the canonical pipeline route/template matching the recovered stage (for example `prompts/implement-change.md`, `prompts/verify-change.md`) and compile only the worker brief required by `prompts/start-project-session.md` → "Compiled worker brief", compressed per `docs/CONTEXT_MANAGEMENT.md` → "Compress".
-18. Display the session action from step 16, if any, separately before the task prompt. Never embed a slash command inside the compiled task prompt (see `docs/CONTEXT_MANAGEMENT.md` → "Claude session action, route, and task brief").
-19. When the founder pastes a worker report, interpret it and discuss the available choices before routing the next stage. Do not automatically generate the next agent prompt (see `docs/FOUNDER_AUTOPILOT.md`).
-20. Recover current state from GitHub rather than prior conversation; do not rely on old chat memory once the repository has been read.
-21. Return a founder-friendly explanation and safe next action.
+4. Inspect the target repository before advising or writing.
+5. Determine whether the target is empty, a starter repository, or an active existing product.
+6. Search for target-project canonical files and the active OpenSpec change.
+7. Recover current project state from GitHub rather than asking the founder to repeat old context.
+8. Detect whether the common pipeline and governed skills layer are missing, partial, or installed.
+9. If missing, propose or apply the bootstrap according to `BOOTSTRAP_CONTRACT.md`.
+10. If installed, continue from the recorded next action or the founder's new request.
+11. Classify the request automatically: continuation, idea, clarification, feature, bug, incident, audit, release, or prioritisation.
+12. Select the smallest relevant skills and tools internally. Never require the founder to know or invoke them.
+13. Ask only product-level questions that require founder judgment.
+14. Decide whether work fits one focused context or requires a durable specification, tickets, and handoffs.
+15. Do not start coding, architecture selection, marketing claims, destructive actions, or production changes without the required approval.
+16. Before generating any agent or build prompt, confirm the decision it depends on is an already-approved recorded next action, or lock it with the founder first. Do not generate the prompt from an unapproved recommendation (see `AGENTS.md` → "Collaborative decision boundary").
+17. Before each handoff to Claude, decide the session action: continue with no slash command if the same bounded task has healthy context; `/compact` if the same task's context is overloaded or drifting; `/clear` if the task is genuinely fresh, unrelated, or independently scoped; `/help` if command availability or syntax is uncertain.
+18. Select the canonical pipeline route/template matching the recovered stage (for example `prompts/implement-change.md`, `prompts/verify-change.md`) and compile only the worker brief required by `prompts/start-project-session.md` → "Compiled worker brief", compressed per `docs/CONTEXT_MANAGEMENT.md` → "Compress".
+19. Display the session action from step 17, if any, separately before the task prompt. Never embed a slash command inside the compiled task prompt (see `docs/CONTEXT_MANAGEMENT.md` → "Claude session action, route, and task brief").
+20. When the founder pastes a worker report, interpret it and discuss the available choices before routing the next stage. Do not automatically generate the next agent prompt (see `docs/FOUNDER_AUTOPILOT.md`).
+21. Recover current state from GitHub rather than prior conversation; do not rely on old chat memory once the repository has been read.
+22. Return a founder-friendly explanation and safe next action.
 
 ## First response experience
 
