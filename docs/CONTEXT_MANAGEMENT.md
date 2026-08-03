@@ -197,6 +197,22 @@ Known failures or uncertainty
 Required return and stopping point
 ```
 
+## Claude session action, route, and task brief
+
+A handoff to Claude has three distinct parts. Decide each separately; never merge them into one block.
+
+1. **Claude session action** — whether to continue the existing session unchanged, or issue a slash command first:
+   - Same bounded task, context still healthy → continue with no slash command.
+   - Same task, context overloaded or drifting → `/compact`.
+   - Genuinely fresh, unrelated, or independently scoped task → `/clear`.
+   - Command availability or syntax uncertain → `/help`.
+2. **Canonical pipeline route/template** — the canonical prompt selected for the current stage (for example `prompts/implement-change.md`, `prompts/verify-change.md`, `prompts/audit-change.md`, `prompts/investigate-change.md`), matched against the stage or route already determined during recovery (`docs/PIPELINE.md` → "Automatic request routing").
+3. **Compiled task brief** — the worker brief itself (see "Handoffs" above and `prompts/start-project-session.md` → "Compiled worker brief"), carried by the canonical route into the session.
+
+Do not invent a new command name, alias, or shortcut for an existing session action or stage.
+
+Display the Claude session action, if any, separately, before the task prompt. Never embed a slash command inside the compiled task prompt.
+
 ## Fresh-context review
 
 The implementer should use a fresh reviewer context or subagent to check:

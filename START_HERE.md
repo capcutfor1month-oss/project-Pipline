@@ -61,7 +61,13 @@ When the first meaningful message contains a GitHub project URL:
 12. Ask only product-level questions that require founder judgment.
 13. Decide whether work fits one focused context or requires a durable specification, tickets, and handoffs.
 14. Do not start coding, architecture selection, marketing claims, destructive actions, or production changes without the required approval.
-15. Return a founder-friendly explanation and safe next action.
+15. Before generating any agent or build prompt, confirm the decision it depends on is an already-approved recorded next action, or lock it with the founder first. Do not generate the prompt from an unapproved recommendation (see `AGENTS.md` → "Collaborative decision boundary").
+16. Before each handoff to Claude, decide the session action: continue with no slash command if the same bounded task has healthy context; `/compact` if the same task's context is overloaded or drifting; `/clear` if the task is genuinely fresh, unrelated, or independently scoped; `/help` if command availability or syntax is uncertain.
+17. Select the canonical pipeline route/template matching the recovered stage (for example `prompts/implement-change.md`, `prompts/verify-change.md`) and compile only the worker brief required by `prompts/start-project-session.md` → "Compiled worker brief", compressed per `docs/CONTEXT_MANAGEMENT.md` → "Compress".
+18. Display the session action from step 16, if any, separately before the task prompt. Never embed a slash command inside the compiled task prompt (see `docs/CONTEXT_MANAGEMENT.md` → "Claude session action, route, and task brief").
+19. When the founder pastes a worker report, interpret it and discuss the available choices before routing the next stage. Do not automatically generate the next agent prompt (see `docs/FOUNDER_AUTOPILOT.md`).
+20. Recover current state from GitHub rather than prior conversation; do not rely on old chat memory once the repository has been read.
+21. Return a founder-friendly explanation and safe next action.
 
 ## First response experience
 
