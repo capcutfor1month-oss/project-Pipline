@@ -18,6 +18,7 @@
 | Agent OS | Permanent standards support | Partly represented by agent files |
 | Task Master | Large task dependency management | Optional |
 | BMAD | Full-team methodology reference | Optional |
+| Knowledge Librarian / Project Brain | Optional cross-session project reasoning, decisions, research, history, and continuity | Optional external personal system, not required for pipeline operation — GitHub remains canonical for code, specs, commits, and implementation state; no specific tool (Obsidian, MCP, ChatGPT, Claude, Codex, or another) is assumed available |
 | Preview hosting | Safe live testing | Requires approved architecture |
 | Production hosting | Public runtime | Requires release candidate |
 | Sentry | Technical production monitoring | Requires runtime/framework |
