@@ -2,6 +2,16 @@
 
 This repository is the canonical reusable development pipeline for all future projects owned by the founder.
 
+## Repository identity — read this first
+
+This is a development-governance repository. It governs how repository changes are clarified, approved, specified, investigated, implemented, tested, audited, and released.
+
+It is not a target product. It does not contain, define, or supply any product philosophy, feature model, methodology, or domain terminology. If this URL was pasted into a conversation about a different project — at the start of that conversation or in the middle of one already underway — treat it only as a development-governance reference. Do not fold any of its concepts into that project's product philosophy, domain workflow, or terminology. The target project's own canonical documents remain authoritative for what that product is.
+
+Being given this URL, by itself, does not authorize applying the Pipeline to whatever is currently being discussed. It does not prove whether the founder wants to inspect this repository, apply it to a named target project, brainstorm or shape a project with it as governance, compare it against another approach or repository, modify Project-Pipeline itself, or something else entirely. Resolve that intent — see `START_HERE.md` — before changing or reframing anything.
+
+If the URL you were given resolves to this repository itself (`capcutfor1month-oss/project-Pipline`, or any copy or fork identified by its own canonical documents), read `START_HERE.md` before choosing what to do next.
+
 ## Founder Autopilot
 
 The default experience is simple:

@@ -2,6 +2,28 @@
 
 Use this file whenever a new ChatGPT conversation begins for any project.
 
+## Repository identity, at any point in a conversation
+
+This check applies whenever the Project-Pipeline URL (`capcutfor1month-oss/project-Pipline`, or any copy or fork identified by its own canonical documents) is supplied — as the first message, mid-conversation, inside an existing product or domain discussion, or after unrelated work has already occurred. It is not scoped only to "the first meaningful message."
+
+Pasting this URL identifies a development-governance reference. It does not, by itself, authorize applying Project-Pipeline to the project already under discussion, and it does not authorize adopting Pipeline concepts as that project's domain concepts. The URL alone does not prove which of the following the founder wants:
+
+1. Inspect Project-Pipeline.
+2. Apply it to a named target project.
+3. Brainstorm or shape a project using it as development governance.
+4. Compare it against another approach or repository.
+5. Modify Project-Pipeline itself.
+6. Another explicitly stated purpose.
+
+Before treating the reference as an instruction:
+
+- Do not infer product or domain intent from Pipeline terminology or stage names.
+- If a domain conversation is already in progress, keep it fully separate. Do not redesign, reinterpret, or reframe it around Project-Pipeline concepts — Project-Pipeline supplies process, never product, feature, or domain content.
+- If it is unclear which of the six purposes above applies — including whether the founder wants this pipeline applied to the project already under discussion — ask, rather than assuming continuity with the existing conversation.
+- If the founder confirms Project-Pipeline should apply to the project already under discussion, treat that project's own domain documents and stated product problem as unchanged and authoritative, and apply Project-Pipeline only to how changes to that project's repository are governed going forward.
+
+When the resolved purpose is "apply it to a named target project" and no fresh session is otherwise in progress, continue with the fresh-session recovery steps below. When the resolved purpose points at this repository itself, use "What the orchestration hub must do automatically" step 2 for the four neutral paths.
+
 ## The founder's only required first message
 
 Paste only the target project repository URL.
@@ -35,7 +57,7 @@ When access is missing or partial, do not guess project state. Report the limita
 
 ## What the orchestration hub must do automatically
 
-When the first meaningful message contains a GitHub project URL:
+When the first meaningful message contains a GitHub project URL, apply "Repository identity, at any point in a conversation" above first, then continue:
 
 1. Recognize `capcutfor1month-oss/project-Pipline` as the canonical common pipeline.
 2. When the supplied URL resolves to this pipeline/governance repository itself — including any copy or fork identified by its own canonical documents (`README.md`, `BOOTSTRAP_CONTRACT.md`, `MANIFEST.md`, `AGENTS.md`) — rather than a separate target project, do not select, recommend, or name a target project from this repository's own internal roadmap notes, prior conversation, or unrelated account context. Offer the founder four neutral paths and wait for their choice before continuing: start a new project, resume an existing project, brainstorm and shape a new idea, or work on the Project-Pipeline itself. Do not require a target repository before brainstorming.

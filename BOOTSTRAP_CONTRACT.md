@@ -20,9 +20,13 @@ The common scaffold may be added as the initial setup.
 
 - Use a dedicated setup branch.
 - Preserve existing code and project-specific instructions.
+- Identify the repository's existing canonical product/domain authorities (its own product, architecture, methodology, or terminology documents) before adding anything.
+- Preserve their terminology, workflows, and approval gates. Add only missing development-governance prerequisites; do not rename or restructure existing domain workflows merely to resemble Project-Pipeline.
+- Record the authority boundary: the target project's own documents remain authoritative for product and domain; Project-Pipeline governs development process only.
 - Merge compatible rules instead of overwriting files blindly.
 - Report conflicts and duplicates.
 - Do not reorganize product code without approval.
+- Stop and ask the founder when it is unclear whether a requested or discovered change is process-level (development governance) or product/domain-level. Do not guess.
 
 ## Principles every project records
 

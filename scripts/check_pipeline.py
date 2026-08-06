@@ -31,6 +31,14 @@ required_skill_sources = (
     "coreyhaines31/marketingskills",
 )
 
+# Exact private-domain identifiers that must never appear in universal Markdown
+# guidance. Kept here, in Python, deliberately — this denylist is not itself
+# scanned since the scan below only reads *.md files.
+forbidden_domain_phrases = (
+    "producer operating kit",
+    "ai-assisted music production pipeline",
+)
+
 required_phrases = {
     "docs/FOUNDER_AUTOPILOT.md": (
         "The founder is not responsible for",
@@ -72,6 +80,7 @@ required_phrases = {
     "docs/DECISIONS.md": (
         "DEC-014 — Collaborative founder decision rule",
         "the default response is explanation and discussion",
+        "DEC-017 — Target-domain / development-governance separation",
     ),
     "AGENTS.md": (
         "Founder Autopilot",
@@ -82,6 +91,9 @@ required_phrases = {
         "The orchestrator selects skills automatically",
         "What you should do now",
         "Never claim success without evidence",
+        "Target-domain authority vs development-governance authority",
+        "Repository comprehension",
+        "No acting agent may silently redesign a target project around Project-Pipeline stages",
     ),
     "CLAUDE.md": (
         "Claude is the default primary production-code implementer",
@@ -94,6 +106,27 @@ required_phrases = {
         "First response experience",
         "Never require the founder to know or invoke them",
         "What you should do now",
+        "Repository identity, at any point in a conversation",
+        "It is not scoped only to \"the first meaningful message.\"",
+    ),
+    "README.md": (
+        "Repository identity — read this first",
+        "This is a development-governance repository",
+        "does not authorize applying the Pipeline",
+    ),
+    "BOOTSTRAP_CONTRACT.md": (
+        "Identify the repository's existing canonical product/domain authorities",
+        "Stop and ask the founder when it is unclear whether a requested or discovered change is process-level",
+    ),
+    "docs/TESTING.md": (
+        "Onboarding and repository-identity regression scenarios",
+        "Scenario: Project-Pipeline URL pasted mid-conversation",
+        "Scenario: README-only agent",
+        "Read and understand this repository",
+    ),
+    "MANIFEST.md": (
+        "the project's authority-boundary record",
+        "must also record the project's authority-boundary",
     ),
     "prompts/start-project-session.md": (
         "Required founder-facing response",
@@ -143,6 +176,15 @@ for path in Path(".").rglob("*.md"):
     if any(token in lowered for token in forbidden_tokens):
         bad_names.append(str(path))
 
+domain_leaks = []
+for path in Path(".").rglob("*.md"):
+    if ".git" in path.parts:
+        continue
+    lowered_text = path.read_text(encoding="utf-8", errors="ignore").lower()
+    for phrase in forbidden_domain_phrases:
+        if phrase in lowered_text:
+            domain_leaks.append(f"{path}: {phrase!r}")
+
 missing_skill_sources = []
 skills_doc = Path("docs/SKILLS.md")
 if skills_doc.is_file():
@@ -190,7 +232,12 @@ if missing_phrases:
     for item in missing_phrases:
         print(f" - {item}")
 
-if missing or bad_names or missing_skill_sources or missing_phrases:
+if domain_leaks:
+    print("Found real-world domain example in universal guidance:")
+    for item in domain_leaks:
+        print(f" - {item}")
+
+if missing or bad_names or missing_skill_sources or missing_phrases or domain_leaks:
     sys.exit(1)
 
 print("Universal pipeline checks passed.")

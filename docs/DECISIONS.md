@@ -168,3 +168,17 @@ This decision extends the existing scope-discipline rule in `AGENTS.md` ("stay w
 **Reason:** Without this rule, a change that fails real-world validation after lock has no defined boundary between "repair the approved change" and "quietly redefine it," and no defined stopping point between "keep trying" and "escalate." Stating the boundary as an extension of already-approved scope-discipline and risk-tier rules keeps the pipeline's existing architecture — stages, risk tiers, routing, and canonical reports — as the only sources of truth, instead of adding a competing one.
 
 **Status:** Active
+
+---
+
+## DEC-017 — Target-domain / development-governance separation
+
+**Decision:** Two authorities apply together and must never be merged: a target project's own canonical documents govern what the product is — purpose, features, architecture, domain methodology, terminology, creative or functional workflow, and domain-specific approval gates. Project-Pipeline governs only how repository changes are clarified, approved, specified, investigated, implemented, tested, audited, and released. Project-Pipeline supplies development governance; it supplies no product, feature, philosophy, methodology, or domain content.
+
+Being given, pointed to, or reading the Project-Pipeline repository — as a first message, mid-conversation, inside an existing product discussion, or after unrelated work has already occurred — never authorizes applying it to the project already under discussion and never authorizes adopting Pipeline concepts as that project's domain concepts. When it is ambiguous whether a requested or observed change is process-level or product/domain-level, the acting agent resolves that ambiguity with the founder before acting, rather than guessing or silently redesigning the target project around Pipeline stages or terminology. Applying Project-Pipeline to a target project preserves that project's existing domain documents, terminology, workflows, and approval gates unchanged unless the founder separately approves a product-level change to them.
+
+This decision also fixes repository-comprehension behavior: when the founder supplies any GitHub repository URL and asks to read, inspect, understand, review, or resume it, the acting agent recovers the repository's own structure and canonical entry documents (`START_HERE.md`, `AGENTS.md`, `MANIFEST.md`, `docs/INDEX.md`, `docs/CURRENT.md`, and project-specific equivalents where present) before responding, rather than answering from the repository title or README alone.
+
+**Reason:** A real onboarding failure showed an agent folding Project-Pipeline process concepts into an unrelated product's domain philosophy after the Project-Pipeline URL was pasted mid-conversation. The pipeline's existing self-repository special case (`START_HERE.md`) only fired for a fresh session's first message, and no document stated the non-adoption rule independently of correctly resolving repository identity first — so an agent that read only a README, or that was already mid-conversation, had no rule to catch the conflation.
+
+**Status:** Active

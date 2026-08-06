@@ -18,7 +18,7 @@ This manifest defines the common files and how they should be applied to a targe
 
 | File | Purpose |
 |---|---|
-| `docs/INDEX.md` | Documentation registry and anti-duplication control |
+| `docs/INDEX.md` | Documentation registry, anti-duplication control, and the project's authority-boundary record |
 | `docs/PRODUCT.md` | Approved product problem, users, and scope |
 | `docs/ARCHITECTURE.md` | Approved current system architecture |
 | `docs/CURRENT.md` | Small current-state and next-action summary |
@@ -34,6 +34,8 @@ This manifest defines the common files and how they should be applied to a targe
 | `docs/PIPELINE_UPDATE_RECOMMENDATIONS.md` | Approved improvement roadmap and pilot plan |
 
 For a new project, `PRODUCT.md` and `ARCHITECTURE.md` must clearly state that they are not yet defined.
+
+`docs/INDEX.md` must also record the project's authority-boundary, generically: which of the project's own documents hold target-domain authority (product, architecture, methodology, terminology); that Project-Pipeline governs repository-development workflow only; and that adoption does not supersede the project's product/domain methodology. This pipeline repository's own copy of this rule must not hardcode any specific project or document name.
 
 Each adopted project must make Founder Autopilot the default founder experience and apply the Founder-Friendly Communication Contract. Project-specific `docs/SKILLS.md` records installed, available, deferred, and restricted capabilities, while the orchestration hub selects skills automatically.
 

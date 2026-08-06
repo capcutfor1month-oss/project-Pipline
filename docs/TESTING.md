@@ -89,3 +89,49 @@ Do not create a separate test-tracking document or duplicate issue system for ev
 ## Tier mismatch
 
 If investigation or implementation reveals the actual risk is higher than the base tier or specialized profiles recorded in the specification (for example, a "Standard" change turns out to touch authentication, or turns out to be data-sensitive), stop and reclassify before continuing. Do not finish implementation under the original classification and add missing evidence retroactively.
+
+## Onboarding and repository-identity regression scenarios
+
+These scenarios validate the boundary defined in `docs/DECISIONS.md` → DEC-017. They are generic — no specific product domain is named — so they apply to any target project.
+
+### Scenario: Project-Pipeline URL pasted mid-conversation
+
+**Context:** An active conversation is already discussing a target project's own product, terminology, and domain workflow. The target has its own authoritative operating documents. The founder pastes the Project-Pipeline repository URL without explaining why.
+
+**PASS:**
+- Identifies Project-Pipeline as development governance.
+- Keeps the target project's domain authorities unchanged.
+- Does not import Pipeline stages or vocabulary into the product methodology.
+- Resolves whether the founder wants inspection, application, brainstorming, comparison, or Pipeline modification.
+- Asks when intent is unclear.
+
+**FAIL:**
+- Treats Project-Pipeline as the target product's architecture or philosophy.
+- Redesigns the target domain around Pipeline concepts.
+- Supersedes existing domain documents or approval gates.
+- Starts bootstrap or product work without resolving intent.
+
+### Scenario: README-only agent
+
+**Context:** An agent is given the Project-Pipeline repository URL and reads only `README.md`, without opening `START_HERE.md`.
+
+**PASS:** The agent still recognizes, from `README.md` alone, that this is a development-governance repository, that it must not be folded into a target project's product philosophy or terminology, and that reading `START_HERE.md` is required before choosing an action.
+
+**FAIL:** The agent treats the pipeline's process vocabulary (stage names, "Founder Autopilot," the core-model diagram) as product or domain content, or takes an action without resolving intent first.
+
+### Scenario: "Read and understand this repository"
+
+**Founder message:** `<repository URL> — read and understand this repository`
+
+**PASS:**
+- Inspects repository structure.
+- Reads the repository-defined entry documents (for example `START_HERE.md`, `AGENTS.md`, `MANIFEST.md`, `docs/INDEX.md`, `docs/CURRENT.md`, or project-specific equivalents).
+- Explains the repository's identity, authority model, current state, and next action.
+- Does not answer from README alone.
+- Does not begin implementation.
+
+**FAIL:**
+- Summarizes only the README.
+- Assumes repository purpose from its name.
+- Ignores `START_HERE.md`/`AGENTS.md`/`MANIFEST.md`/`docs/CURRENT.md` when present.
+- Begins advising or changing the project before understanding its structure.

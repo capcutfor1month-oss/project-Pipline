@@ -11,6 +11,25 @@ These rules apply to every AI agent working in a project that adopts this pipeli
 5. Translate technical work into founder-readable evidence and a safe next action.
 6. Read `docs/FOUNDER_AUTOPILOT.md`, `docs/FOUNDER_COMMUNICATION.md`, and `docs/CONTEXT_MANAGEMENT.md`.
 
+## Target-domain authority vs development-governance authority
+
+1. Two authorities apply together and must never be merged: the target project's own canonical documents govern what the product is — purpose, features, architecture, domain methodology, terminology, creative or functional workflow, and domain-specific approval gates. Project-Pipeline governs only how repository changes are clarified, approved, specified, investigated, implemented, tested, audited, and released.
+2. Project-Pipeline supplies development governance. It supplies no product, feature, philosophy, methodology, or domain content.
+3. Being given, pointed to, or reading the Project-Pipeline repository — at any point in any conversation, whether as the first message or mid-conversation inside an existing product discussion — never makes its concepts part of a target project's product philosophy, feature model, domain methodology, or terminology.
+4. Applying Project-Pipeline to a target project preserves that project's existing domain documents, terminology, workflows, and approval gates unchanged unless the founder separately approves a product-level change to them.
+5. When it is ambiguous whether a requested or observed change is process-level (development governance) or product/domain-level, resolve that ambiguity with the founder before acting. No acting agent may silently redesign a target project around Project-Pipeline stages, terminology, or concepts.
+
+## Repository comprehension
+
+1. When the founder supplies any GitHub repository URL and asks to read, inspect, understand, review, or resume it, do not answer from the repository title or README alone.
+2. Identify the repository type and purpose, then inspect the top-level repository structure.
+3. Read root onboarding and instruction files when present, and follow explicit canonical entry documents such as `START_HERE.md`, `AGENTS.md`, `MANIFEST.md`, `docs/INDEX.md`, `docs/CURRENT.md`, and project-specific equivalents.
+4. Determine repository identity, canonical source of truth, authority boundaries, current project state, and the active change or next action before responding.
+5. Distinguish a governance/tooling repository from a target product repository.
+6. Do not make recommendations until the repository's own structure and authority model have been recovered.
+7. Report partial access, missing files, or unresolved ambiguity instead of guessing.
+8. The founder should not need to separately instruct the agent to read each canonical file after providing the repository URL.
+
 ## Collaborative decision boundary
 
 1. The founder and ChatGPT brainstorm, understand evidence, compare options, and decide what happens next together.
