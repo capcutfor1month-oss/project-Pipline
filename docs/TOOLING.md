@@ -19,6 +19,7 @@
 | Task Master | Large task dependency management | Optional |
 | BMAD | Full-team methodology reference | Optional |
 | Knowledge Librarian / Project Brain | Optional cross-session project reasoning, decisions, research, history, and continuity | Optional external personal system, not required for pipeline operation — GitHub remains canonical for code, specs, commits, and implementation state; no specific tool (Obsidian, MCP, ChatGPT, Claude, Codex, or another) is assumed available |
+| `prompts.chat` (`f/prompts.chat`) | Optional prompt-engineering reference and prompt-pattern library, consulted only when constructing or materially improving a worker prompt | Configured via project-scoped `.mcp.json`; still requires Claude Code's own one-time server approval before its tools are connected and usable — configuration, approval, and connection are distinct facts, see `docs/CONTEXT_MANAGEMENT.md` → "Configuration, approval, and connection are three distinct facts". Policy permits only `search_prompts`, `get_prompt`, `search_skills`, `get_skill`; no API key is configured, so writes and `improve_prompt` are unusable. This reference is advisory only — see `docs/DECISIONS.md` → DEC-018 |
 | Preview hosting | Safe live testing | Requires approved architecture |
 | Production hosting | Public runtime | Requires release candidate |
 | Sentry | Technical production monitoring | Requires runtime/framework |

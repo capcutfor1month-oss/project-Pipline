@@ -117,6 +117,7 @@ Record immediately but configure only when technically possible:
 - Sentry: after runtime and framework selection
 - PostHog: after privacy-safe product events are defined
 - GitHub Agentic Workflows: after the manual pipeline is understood and stable
+- `prompts.chat` MCP reference (`docs/DECISIONS.md` → DEC-018): merge only the `prompts-chat` member of this repository's `.mcp.json` into the target project's `mcpServers` object — do not replace an existing target `.mcp.json`, and stop and report instead of overwriting if the target already has a different `prompts-chat` entry. Documented adoption path only; no automated bootstrap mechanism exists, and this has not been runtime-tested against every target repository. Committing the entry configures the server for that project; it still requires Claude Code's own one-time approval before it is connected — see `docs/CONTEXT_MANAGEMENT.md` → "Configuration, approval, and connection are three distinct facts"
 
 ## Pipeline-ready definition
 
