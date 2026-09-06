@@ -192,15 +192,15 @@ This decision also fixes repository-comprehension behavior: when the founder sup
 ```text
 Source:            f/prompts.chat
 Role:              Prompt-engineering reference and prompt-pattern library
-Access:             Its MCP when available (project-scoped .mcp.json; no API key configured)
+Access:             Configured via project-scoped .mcp.json (no API key); actual connection still requires Claude Code's own one-time server approval — see docs/CONTEXT_MANAGEMENT.md → "Configuration, approval, and connection are three distinct facts"
 Primary consumer:  The orchestration hub, only while constructing or materially improving a worker prompt
 Activation:        Lazy and task-relevant — see docs/CONTEXT_MANAGEMENT.md → "Optional prompt-craft reference"
 Authority:         Advisory only — subordinate to every layer in docs/SKILLS.md → "Precedence and conflict rules"
 Failure behavior:  Unavailability or an empty/low-quality result is reported, never treated as successful retrieval, and never blocks ordinary work
-Writes:            Disabled — `save_prompt`, `save_skill`, `add_file_to_skill`, `update_skill_file`, and `remove_file_from_skill` are not approved for use regardless of whether the connected MCP server exposes them
+Writes:            Disabled — `save_prompt`, `save_skill`, `add_file_to_skill`, `update_skill_file`, `remove_file_from_skill`, and `improve_prompt` are restricted by Project-Pipeline policy, not by a technical deny mechanism; the connected server exposes its full 10-tool surface regardless
 ```
 
-Verified against the live server: read tools `search_prompts`, `get_prompt`, `search_skills`, and `get_skill` work without authentication. `improve_prompt` requires an API key on the live server despite not being documented as such upstream — since no `PROMPTS_API_KEY` is configured, `improve_prompt` is unusable under this decision and is not part of the approved surface.
+Verified against the live server: the server exposes 10 tools total. The 4 Pipeline-approved read tools (`search_prompts`, `get_prompt`, `search_skills`, `get_skill`) work without authentication. The 6 Pipeline-prohibited tools are `save_prompt`, `save_skill`, `add_file_to_skill`, `update_skill_file`, `remove_file_from_skill`, and `improve_prompt` — the last of these requires an API key on the live server despite not being documented as such upstream; since no `PROMPTS_API_KEY` is configured, `improve_prompt` is unusable regardless of policy and is not part of the approved surface.
 
 **Reason:** The founder approved prompts.chat as a way to improve how Claude, Codex, investigator, and verification prompts are phrased, without letting an external, unmoderated, community-submitted library acquire any authority over scope, acceptance criteria, or approval gates already governed by DEC-001 through DEC-017.
 

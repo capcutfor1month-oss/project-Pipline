@@ -177,103 +177,149 @@ template_required_phrases = {
     "templates/change/audit-report.md": ("Founder summary", "Technical evidence"),
 }
 
-missing = [path for path in required if not Path(path).is_file()]
+APPROVED_PROMPTS_CHAT_URL = "https://prompts.chat/api/mcp"
+APPROVED_PROMPTS_CHAT_KEYS = {"type", "url"}
 
-bad_names = []
-for path in Path(".").rglob("*.md"):
-    lowered = path.stem.lower()
-    if any(token in lowered for token in forbidden_tokens):
-        bad_names.append(str(path))
 
-domain_leaks = []
-for path in Path(".").rglob("*.md"):
-    if ".git" in path.parts:
-        continue
-    lowered_text = path.read_text(encoding="utf-8", errors="ignore").lower()
-    for phrase in forbidden_domain_phrases:
-        if phrase in lowered_text:
-            domain_leaks.append(f"{path}: {phrase!r}")
+def validate_mcp_config(path=None):
+    """Validate the committed `.mcp.json` prompts-chat entry against DEC-018.
 
-missing_skill_sources = []
-skills_doc = Path("docs/SKILLS.md")
-if skills_doc.is_file():
-    skills_text = skills_doc.read_text(encoding="utf-8")
-    missing_skill_sources = [
-        source for source in required_skill_sources if source not in skills_text
-    ]
+    Returns a list of human-readable issue strings (empty when valid). Never
+    raises on malformed-but-valid JSON — every level is type-checked before
+    a dict method is called on it, and unrelated sibling MCP server entries
+    are never inspected or validated.
+    """
+    if path is None:
+        path = Path(".mcp.json")
 
-mcp_config_issues = []
-mcp_config_path = Path(".mcp.json")
-if mcp_config_path.is_file():
+    if not path.is_file():
+        return [".mcp.json is missing the approved prompts-chat server entry (DEC-018)"]
+
     try:
-        mcp_config = json.loads(mcp_config_path.read_text(encoding="utf-8"))
+        config = json.loads(path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as exc:
-        mcp_config_issues.append(f".mcp.json is not valid JSON: {exc}")
-        mcp_config = {}
-    raw_text = mcp_config_path.read_text(encoding="utf-8")
-    if "PROMPTS_API_KEY" in raw_text or "headers" in mcp_config.get("mcpServers", {}).get("prompts-chat", {}):
-        mcp_config_issues.append(
-            ".mcp.json must not configure an API key or headers for prompts-chat "
-            "(DEC-018 approves read-only, unauthenticated access only)"
+        return [f".mcp.json is not valid JSON: {exc}"]
+
+    if not isinstance(config, dict):
+        return [".mcp.json root must be a JSON object"]
+
+    servers = config.get("mcpServers")
+    if servers is None:
+        return [".mcp.json is missing the approved prompts-chat server entry (DEC-018)"]
+    if not isinstance(servers, dict):
+        return [".mcp.json 'mcpServers' must be an object"]
+
+    entry = servers.get("prompts-chat")
+    if entry is None:
+        return [".mcp.json is missing the approved prompts-chat server entry (DEC-018)"]
+    if not isinstance(entry, dict):
+        return [".mcp.json 'mcpServers.prompts-chat' must be an object"]
+
+    issues = []
+
+    unexpected_keys = sorted(set(entry.keys()) - APPROVED_PROMPTS_CHAT_KEYS)
+    if unexpected_keys:
+        issues.append(
+            ".mcp.json 'mcpServers.prompts-chat' has unexpected key(s) "
+            f"{unexpected_keys} — only {sorted(APPROVED_PROMPTS_CHAT_KEYS)} are approved "
+            "(DEC-018 unauthenticated read-only shape)"
         )
-    prompts_entry = mcp_config.get("mcpServers", {}).get("prompts-chat")
-    if prompts_entry is None:
-        mcp_config_issues.append(".mcp.json is missing the approved prompts-chat server entry (DEC-018)")
-    elif prompts_entry.get("url") != "https://prompts.chat/api/mcp":
-        mcp_config_issues.append(".mcp.json prompts-chat url does not match the DEC-018 approved endpoint")
-else:
-    mcp_config_issues.append(".mcp.json is missing the approved prompts-chat server entry (DEC-018)")
 
-missing_phrases = []
-for file_path, phrases in required_phrases.items():
-    path = Path(file_path)
-    if not path.is_file():
-        continue
-    text = path.read_text(encoding="utf-8")
-    for phrase in phrases:
-        if phrase not in text:
-            missing_phrases.append(f"{file_path}: {phrase}")
+    if entry.get("type") != "http":
+        issues.append(".mcp.json 'mcpServers.prompts-chat.type' must be exactly \"http\"")
 
-for file_path, phrases in template_required_phrases.items():
-    path = Path(file_path)
-    if not path.is_file():
-        continue
-    text = path.read_text(encoding="utf-8")
-    for phrase in phrases:
-        if phrase not in text:
-            missing_phrases.append(f"{file_path}: {phrase}")
+    if entry.get("url") != APPROVED_PROMPTS_CHAT_URL:
+        issues.append(
+            ".mcp.json 'mcpServers.prompts-chat.url' must be exactly "
+            f"\"{APPROVED_PROMPTS_CHAT_URL}\""
+        )
 
-if missing:
-    print("Missing required pipeline files:")
-    for item in missing:
-        print(f" - {item}")
+    return issues
 
-if bad_names:
-    print("Potential duplicate/versioned document names:")
-    for item in bad_names:
-        print(f" - {item}")
 
-if missing_skill_sources:
-    print("Missing approved skill sources from docs/SKILLS.md:")
-    for item in missing_skill_sources:
-        print(f" - {item}")
+def main() -> int:
+    missing = [path for path in required if not Path(path).is_file()]
 
-if missing_phrases:
-    print("Missing required governance language:")
-    for item in missing_phrases:
-        print(f" - {item}")
+    bad_names = []
+    for path in Path(".").rglob("*.md"):
+        lowered = path.stem.lower()
+        if any(token in lowered for token in forbidden_tokens):
+            bad_names.append(str(path))
 
-if domain_leaks:
-    print("Found real-world domain example in universal guidance:")
-    for item in domain_leaks:
-        print(f" - {item}")
+    domain_leaks = []
+    for path in Path(".").rglob("*.md"):
+        if ".git" in path.parts:
+            continue
+        lowered_text = path.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in forbidden_domain_phrases:
+            if phrase in lowered_text:
+                domain_leaks.append(f"{path}: {phrase!r}")
 
-if mcp_config_issues:
-    print("prompts.chat MCP configuration issues:")
-    for item in mcp_config_issues:
-        print(f" - {item}")
+    missing_skill_sources = []
+    skills_doc = Path("docs/SKILLS.md")
+    if skills_doc.is_file():
+        skills_text = skills_doc.read_text(encoding="utf-8")
+        missing_skill_sources = [
+            source for source in required_skill_sources if source not in skills_text
+        ]
 
-if missing or bad_names or missing_skill_sources or missing_phrases or domain_leaks or mcp_config_issues:
-    sys.exit(1)
+    mcp_config_issues = validate_mcp_config()
 
-print("Universal pipeline checks passed.")
+    missing_phrases = []
+    for file_path, phrases in required_phrases.items():
+        path = Path(file_path)
+        if not path.is_file():
+            continue
+        text = path.read_text(encoding="utf-8")
+        for phrase in phrases:
+            if phrase not in text:
+                missing_phrases.append(f"{file_path}: {phrase}")
+
+    for file_path, phrases in template_required_phrases.items():
+        path = Path(file_path)
+        if not path.is_file():
+            continue
+        text = path.read_text(encoding="utf-8")
+        for phrase in phrases:
+            if phrase not in text:
+                missing_phrases.append(f"{file_path}: {phrase}")
+
+    if missing:
+        print("Missing required pipeline files:")
+        for item in missing:
+            print(f" - {item}")
+
+    if bad_names:
+        print("Potential duplicate/versioned document names:")
+        for item in bad_names:
+            print(f" - {item}")
+
+    if missing_skill_sources:
+        print("Missing approved skill sources from docs/SKILLS.md:")
+        for item in missing_skill_sources:
+            print(f" - {item}")
+
+    if missing_phrases:
+        print("Missing required governance language:")
+        for item in missing_phrases:
+            print(f" - {item}")
+
+    if domain_leaks:
+        print("Found real-world domain example in universal guidance:")
+        for item in domain_leaks:
+            print(f" - {item}")
+
+    if mcp_config_issues:
+        print("prompts.chat MCP configuration issues:")
+        for item in mcp_config_issues:
+            print(f" - {item}")
+
+    if missing or bad_names or missing_skill_sources or missing_phrases or domain_leaks or mcp_config_issues:
+        return 1
+
+    print("Universal pipeline checks passed.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
