@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 import sys
 
@@ -65,6 +66,8 @@ required_phrases = {
         "The repository stores durable truth",
         "One-ticket execution rule",
         "Fresh-context review",
+        "Optional prompt-craft reference",
+        "Do not invoke `save_prompt`, `save_skill`, `add_file_to_skill`, `update_skill_file`, `remove_file_from_skill`, or `improve_prompt`",
     ),
     "docs/PIPELINE.md": (
         "Founder Autopilot Mode is the default interface",
@@ -81,6 +84,12 @@ required_phrases = {
         "DEC-014 — Collaborative founder decision rule",
         "the default response is explanation and discussion",
         "DEC-017 — Target-domain / development-governance separation",
+        "DEC-018 — prompts.chat prompt-engineering reference",
+        "Writes:            Disabled",
+    ),
+    "docs/TOOLING.md": (
+        "`prompts.chat` (`f/prompts.chat`)",
+        "advisory only",
     ),
     "AGENTS.md": (
         "Founder Autopilot",
@@ -193,6 +202,28 @@ if skills_doc.is_file():
         source for source in required_skill_sources if source not in skills_text
     ]
 
+mcp_config_issues = []
+mcp_config_path = Path(".mcp.json")
+if mcp_config_path.is_file():
+    try:
+        mcp_config = json.loads(mcp_config_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        mcp_config_issues.append(f".mcp.json is not valid JSON: {exc}")
+        mcp_config = {}
+    raw_text = mcp_config_path.read_text(encoding="utf-8")
+    if "PROMPTS_API_KEY" in raw_text or "headers" in mcp_config.get("mcpServers", {}).get("prompts-chat", {}):
+        mcp_config_issues.append(
+            ".mcp.json must not configure an API key or headers for prompts-chat "
+            "(DEC-018 approves read-only, unauthenticated access only)"
+        )
+    prompts_entry = mcp_config.get("mcpServers", {}).get("prompts-chat")
+    if prompts_entry is None:
+        mcp_config_issues.append(".mcp.json is missing the approved prompts-chat server entry (DEC-018)")
+    elif prompts_entry.get("url") != "https://prompts.chat/api/mcp":
+        mcp_config_issues.append(".mcp.json prompts-chat url does not match the DEC-018 approved endpoint")
+else:
+    mcp_config_issues.append(".mcp.json is missing the approved prompts-chat server entry (DEC-018)")
+
 missing_phrases = []
 for file_path, phrases in required_phrases.items():
     path = Path(file_path)
@@ -237,7 +268,12 @@ if domain_leaks:
     for item in domain_leaks:
         print(f" - {item}")
 
-if missing or bad_names or missing_skill_sources or missing_phrases or domain_leaks:
+if mcp_config_issues:
+    print("prompts.chat MCP configuration issues:")
+    for item in mcp_config_issues:
+        print(f" - {item}")
+
+if missing or bad_names or missing_skill_sources or missing_phrases or domain_leaks or mcp_config_issues:
     sys.exit(1)
 
 print("Universal pipeline checks passed.")

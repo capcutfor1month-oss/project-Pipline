@@ -182,3 +182,26 @@ This decision also fixes repository-comprehension behavior: when the founder sup
 **Reason:** A real onboarding failure showed an agent folding Project-Pipeline process concepts into an unrelated product's domain philosophy after the Project-Pipeline URL was pasted mid-conversation. The pipeline's existing self-repository special case (`START_HERE.md`) only fired for a fresh session's first message, and no document stated the non-adoption rule independently of correctly resolving repository identity first — so an agent that read only a README, or that was already mid-conversation, had no rule to catch the conflation.
 
 **Status:** Active
+
+---
+
+## DEC-018 — prompts.chat prompt-engineering reference
+
+**Decision:** Approve `https://github.com/f/prompts.chat` and its MCP endpoint (`https://prompts.chat/api/mcp`) as an optional prompt-engineering reference source for the orchestration layer. It informs how a worker prompt is worded; it never supplies project truth, product truth, scope, or approval authority.
+
+```text
+Source:            f/prompts.chat
+Role:              Prompt-engineering reference and prompt-pattern library
+Access:             Its MCP when available (project-scoped .mcp.json; no API key configured)
+Primary consumer:  The orchestration hub, only while constructing or materially improving a worker prompt
+Activation:        Lazy and task-relevant — see docs/CONTEXT_MANAGEMENT.md → "Optional prompt-craft reference"
+Authority:         Advisory only — subordinate to every layer in docs/SKILLS.md → "Precedence and conflict rules"
+Failure behavior:  Unavailability or an empty/low-quality result is reported, never treated as successful retrieval, and never blocks ordinary work
+Writes:            Disabled — `save_prompt`, `save_skill`, `add_file_to_skill`, `update_skill_file`, and `remove_file_from_skill` are not approved for use regardless of whether the connected MCP server exposes them
+```
+
+Verified against the live server: read tools `search_prompts`, `get_prompt`, `search_skills`, and `get_skill` work without authentication. `improve_prompt` requires an API key on the live server despite not being documented as such upstream — since no `PROMPTS_API_KEY` is configured, `improve_prompt` is unusable under this decision and is not part of the approved surface.
+
+**Reason:** The founder approved prompts.chat as a way to improve how Claude, Codex, investigator, and verification prompts are phrased, without letting an external, unmoderated, community-submitted library acquire any authority over scope, acceptance criteria, or approval gates already governed by DEC-001 through DEC-017.
+
+**Status:** Active

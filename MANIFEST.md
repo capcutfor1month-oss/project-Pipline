@@ -117,6 +117,7 @@ Record immediately but configure only when technically possible:
 - Sentry: after runtime and framework selection
 - PostHog: after privacy-safe product events are defined
 - GitHub Agentic Workflows: after the manual pipeline is understood and stable
+- `prompts.chat` MCP reference (`docs/DECISIONS.md` → DEC-018): copy this repository's `.mcp.json` entry into the target project for reproducible, project-scoped availability; read-only and advisory by default, activated per `docs/CONTEXT_MANAGEMENT.md` → "Optional prompt-craft reference"
 
 ## Pipeline-ready definition
 

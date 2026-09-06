@@ -19,6 +19,7 @@
 | Task Master | Large task dependency management | Optional |
 | BMAD | Full-team methodology reference | Optional |
 | Knowledge Librarian / Project Brain | Optional cross-session project reasoning, decisions, research, history, and continuity | Optional external personal system, not required for pipeline operation — GitHub remains canonical for code, specs, commits, and implementation state; no specific tool (Obsidian, MCP, ChatGPT, Claude, Codex, or another) is assumed available |
+| `prompts.chat` (`f/prompts.chat`) | Optional prompt-engineering reference and prompt-pattern library, consulted only when constructing or materially improving a worker prompt | Available via project-scoped `.mcp.json` (read tools `search_prompts`, `get_prompt`, `search_skills`, `get_skill`; no API key configured, so write tools and `improve_prompt` are not usable); advisory only — see `docs/DECISIONS.md` → DEC-018 and `docs/CONTEXT_MANAGEMENT.md` → "Optional prompt-craft reference" |
 | Preview hosting | Safe live testing | Requires approved architecture |
 | Production hosting | Public runtime | Requires release candidate |
 | Sentry | Technical production monitoring | Requires runtime/framework |
