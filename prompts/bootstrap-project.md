@@ -1,6 +1,6 @@
 # Bootstrap a Project Repository
 
-Canonical source: `capcutfor1month-oss/project-Pipline`
+Canonical source: `MadeByAdi/project-Pipline`
 
 1. Read `BOOTSTRAP_CONTRACT.md`, `MANIFEST.md`, `docs/FOUNDER_AUTOPILOT.md`, `docs/FOUNDER_COMMUNICATION.md`, `docs/PIPELINE.md`, `docs/TOOLING.md`, `docs/SKILLS.md`, and `AGENTS.md`.
 2. Inspect the target repository before writing.

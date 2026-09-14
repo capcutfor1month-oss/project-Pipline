@@ -10,7 +10,7 @@ It is not a target product. It does not contain, define, or supply any product p
 
 Being given this URL, by itself, does not authorize applying the Pipeline to whatever is currently being discussed. It does not prove whether the founder wants to inspect this repository, apply it to a named target project, brainstorm or shape a project with it as governance, compare it against another approach or repository, modify Project-Pipeline itself, or something else entirely. Resolve that intent — see `START_HERE.md` — before changing or reframing anything.
 
-If the URL you were given resolves to this repository itself (`capcutfor1month-oss/project-Pipline`, or any copy or fork identified by its own canonical documents), read `START_HERE.md` before choosing what to do next.
+If the URL you were given resolves to this repository itself (`MadeByAdi/project-Pipline`, or any copy or fork identified by its own canonical documents), read `START_HERE.md` before choosing what to do next.
 
 ## Founder Autopilot
 
@@ -23,7 +23,7 @@ The default experience is simple:
 Example:
 
 ```text
-https://github.com/capcutfor1month-oss/example-project
+https://github.com/MadeByAdi/example-project
 
 The dashboard is confusing. Owners should immediately understand what needs attention.
 ```

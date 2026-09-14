@@ -68,7 +68,7 @@ In a new ChatGPT session, the founder pastes only the target project repository 
 Example:
 
 ```text
-https://github.com/capcutfor1month-oss/example-project
+https://github.com/MadeByAdi/example-project
 ```
 
 The founder may then describe a problem naturally:

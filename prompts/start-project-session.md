@@ -4,7 +4,7 @@ Input: one target GitHub repository URL, optionally followed by a product proble
 
 Canonical common pipeline:
 
-`https://github.com/capcutfor1month-oss/project-Pipline`
+`https://github.com/MadeByAdi/project-Pipline`
 
 This prompt has two responsibilities: the orchestrator recovers canonical state, then compiles a bounded brief for whichever downstream worker executes the task. See `docs/PIPELINE.md`'s "Context recovery" section for the underlying rule — the worker does not repeat orchestrator recovery.
 

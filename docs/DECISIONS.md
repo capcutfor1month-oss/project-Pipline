@@ -2,7 +2,7 @@
 
 ## DEC-001 — Canonical source
 
-**Decision:** `capcutfor1month-oss/project-Pipline` is the canonical source for the founder's common project pipeline.
+**Decision:** `MadeByAdi/project-Pipline` is the canonical source for the founder's common project pipeline.
 
 **Reason:** The pipeline must be independent from any individual product repository.
 

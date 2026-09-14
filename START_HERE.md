@@ -4,7 +4,7 @@ Use this file whenever a new ChatGPT conversation begins for any project.
 
 ## Repository identity, at any point in a conversation
 
-This check applies whenever the Project-Pipeline URL (`capcutfor1month-oss/project-Pipline`, or any copy or fork identified by its own canonical documents) is supplied — as the first message, mid-conversation, inside an existing product or domain discussion, or after unrelated work has already occurred. It is not scoped only to "the first meaningful message."
+This check applies whenever the Project-Pipeline URL (`MadeByAdi/project-Pipline`, or any copy or fork identified by its own canonical documents) is supplied — as the first message, mid-conversation, inside an existing product or domain discussion, or after unrelated work has already occurred. It is not scoped only to "the first meaningful message."
 
 Pasting this URL identifies a development-governance reference. It does not, by itself, authorize applying Project-Pipeline to the project already under discussion, and it does not authorize adopting Pipeline concepts as that project's domain concepts. The URL alone does not prove which of the following the founder wants:
 
@@ -31,7 +31,7 @@ Paste only the target project repository URL.
 Example:
 
 ```text
-https://github.com/capcutfor1month-oss/example-project
+https://github.com/MadeByAdi/example-project
 ```
 
 The founder may immediately add a product problem or desired result in normal language. No repeated explanation of the pipeline, agent roles, documentation rules, skill libraries, context strategy, or project process should be required.
@@ -59,7 +59,7 @@ When access is missing or partial, do not guess project state. Report the limita
 
 When the first meaningful message contains a GitHub project URL, apply "Repository identity, at any point in a conversation" above first, then continue:
 
-1. Recognize `capcutfor1month-oss/project-Pipline` as the canonical common pipeline.
+1. Recognize `MadeByAdi/project-Pipline` as the canonical common pipeline.
 2. When the supplied URL resolves to this pipeline/governance repository itself — including any copy or fork identified by its own canonical documents (`README.md`, `BOOTSTRAP_CONTRACT.md`, `MANIFEST.md`, `AGENTS.md`) — rather than a separate target project, do not select, recommend, or name a target project from this repository's own internal roadmap notes, prior conversation, or unrelated account context. Offer the founder four neutral paths and wait for their choice before continuing: start a new project, resume an existing project, brainstorm and shape a new idea, or work on the Project-Pipeline itself. Do not require a target repository before brainstorming.
 3. Read:
    - `README.md`
